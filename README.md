@@ -1,3 +1,6 @@
+
+![WhatsApp Image 2023-09-16 at 08 33 57](https://github.com/gabrielfilipy/mpu-sp-ui/assets/73559672/2a237db2-601e-4b32-8e6c-2afa081a47f6)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
