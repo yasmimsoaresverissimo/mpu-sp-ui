@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Button from '../Button/Button';
+import Button from '../../compenentes-compartilhados/Button/Button';
+import Documento from '../Documento/Documento';
 
 function App() {
   return (
     <>
-      <Button value={'Cadastrar'} />
-      <Button value={'Editar'} />  
+      <Documento></Documento>
     </>
   );
 }
