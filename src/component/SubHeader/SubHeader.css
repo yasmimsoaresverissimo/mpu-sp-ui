@@ -1,0 +1,18 @@
+.AppSubHeader {
+    background-color: var(--sub-cor-padrao);
+    padding: 1px;
+}
+
+.Avatar {
+    text-align: right;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.Ambiente {
+    text-align: left;
+}
+
+.Logo {
+    width: 60px;
+}

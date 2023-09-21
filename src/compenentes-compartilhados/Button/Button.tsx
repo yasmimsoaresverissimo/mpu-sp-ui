@@ -13,6 +13,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     return <button 
             className="AppButton"
             onClick={ props.onClick }
+            color="red"
         >
             { props.value }
         </button>

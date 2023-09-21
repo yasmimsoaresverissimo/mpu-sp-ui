@@ -1,0 +1,13 @@
+.AppHeader {
+    padding: 5px;
+    background-color: var(--cor-padrao); 
+}
+
+.menu {
+    text-align: right;
+    cursor: pointer;
+}
+
+.Logo {
+    width: 60px;
+}
