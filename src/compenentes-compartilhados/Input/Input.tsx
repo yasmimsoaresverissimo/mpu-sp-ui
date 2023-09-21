@@ -8,7 +8,7 @@ declare interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>
 const Input: React.FC<InputProps> = (props) => {
     return <div className='AppInput'>
         <label>
-            <span>{ props.label }</span>
+            <span >{ props.label }</span>
             
             <input  
                 { ...props }
