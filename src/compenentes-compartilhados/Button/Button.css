@@ -9,3 +9,13 @@
     height: 30px;
     font-size: 16px;
 }
+.AppButtonPrimary{
+    background-color: #09f;
+}
+
+.AppButtonDanger{
+    background-color: rgba(228,60,60,0.963);
+}
+.AppButtonAlert{
+    background-color: rgb(244,234,88);
+}
