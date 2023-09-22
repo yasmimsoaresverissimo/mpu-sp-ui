@@ -21,7 +21,7 @@ function SubHeader() {
                         </Grid>
                         <Grid item xs={1}> 
                         <div className="BtnSair">
-                            <Button value="Sair" />
+                            <Button value="Sair" color="alert" />
                         </div> 
                         </Grid>
                     
