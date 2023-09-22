@@ -1,19 +1,21 @@
 import React from 'react';
 import './App.css';
-import Button from '../../compenentes-compartilhados/Button/Button';
+import {} from 'react-router'
+import { Route,BrowserRouter,Routes } from 'react-router-dom';
 import Documento from '../Documento/Documento';
-import Header from '../Header/Header';
-import SubHeader from '../SubHeader/SubHeader';
 import Login from '../Login/Login';
 
 function App() {
   return (
-    <>
-      <Header></Header>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/documento" element={<Documento />} ></Route>
+          <Route path="/login" element={<Login />} ></Route>
 
-      <SubHeader></SubHeader>
-      <Login></Login>
-    </>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
