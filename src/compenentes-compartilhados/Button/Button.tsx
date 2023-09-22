@@ -19,9 +19,7 @@ if(props.color === 'primary'){
         >
             { props.value }
         </button>
-        }
-
-else if(props.color ==='danger'){
+        } else if(props.color ==='danger'){
         return <button 
             className="AppButton AppButtonDanger"
             onClick={ props.onClick }
