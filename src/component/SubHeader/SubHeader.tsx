@@ -14,14 +14,17 @@ function SubHeader() {
                             <p>Ambiente de <b>desenvolvimento</b></p>
                         </div>
                     </Grid> 
-                    <Grid item xs={6}>
+                    <Grid item xs={5}>
                         <div className="Avatar">
                             <Chip avatar={<Avatar sx={{ background: 'white' }}>G</Avatar>} label="Gabriel Filipy" />
                         </div> 
+                        </Grid>
+                        <Grid item xs={1}> 
                         <div className="BtnSair">
                             <Button value="Sair" />
                         </div> 
-                    </Grid> 
+                        </Grid>
+                    
                 </Grid>
             </Conteudo>
         </div>
