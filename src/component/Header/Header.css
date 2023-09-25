@@ -5,6 +5,12 @@
 
 .menu {
     text-align: right;
+}
+
+.BtnMenu {
+    background-color: red;
+    width: 35px;
+    text-align: right;
     cursor: pointer;
 }
 
