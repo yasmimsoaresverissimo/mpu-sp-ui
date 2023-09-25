@@ -20,6 +20,14 @@ function Header() {
                     </Grid> 
                 </Grid>
             </Conteudo>
+
+            <ul className="navbar-menu">
+                <li className="navbar-usuario">Gabriel Filipy</li>
+                <li className="navbar-menu-item"><a href="">Criar documento</a></li>
+                <li className="navbar-menu-item"><a href="">Cadastrar usuário</a></li>
+                <li className="navbar-menu-item"><a href="">Cadastrar setor</a></li>
+            </ul>
+
         </div>
 }
 
