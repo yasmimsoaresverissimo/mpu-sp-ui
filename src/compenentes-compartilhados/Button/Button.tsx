@@ -15,7 +15,6 @@ if(props.color === 'primary'){
     return <button 
             className="AppButtonPrimary"
             onClick={ props.onClick }
-            color="red"
         >
             { props.value }
         </button>
@@ -23,7 +22,6 @@ if(props.color === 'primary'){
         return <button 
             className="AppButton AppButtonDanger"
             onClick={ props.onClick }
-            color="red"
         >
             { props.value }
         </button>
@@ -35,19 +33,20 @@ else if(props.color === 'alert'){
                return <button 
             className="AppButton AppButtonAlert"
             onClick={ props.onClick }
-            color="red"
         >
             { props.value }
         </button>
- 
-
-}
-
-else{
+}else if(props.color === 'create') {
+    return <button 
+            className="AppButton AppButtonCreate"
+            onClick={ props.onClick }
+            >
+            { props.value }
+        </button>
+} else {
     return <button 
             className="AppButton AppButtonPrimary"
             onClick={ props.onClick }
-            color="red"
         >
             { props.value }
         </button>

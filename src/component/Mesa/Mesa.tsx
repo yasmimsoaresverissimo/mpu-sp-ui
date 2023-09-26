@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo'
 import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup'
 import './Mesa.css'
+import TableMesa from './Table/TableMesa';
+import Button from '../../compenentes-compartilhados/Button/Button';
+import { Link } from 'react-router-dom';
+import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 
 function Mesa() {
 
@@ -37,15 +41,23 @@ function Mesa() {
 
     return <Conteudo >
             <div className='HeaderMesa'>
-                <h2>Mesa virtual</h2>
-                <InputGroup></InputGroup>
+                <h2>Mesa virtual <FolderCopyIcon /></h2>
+
+                <div className='left'>
+                    <InputGroup></InputGroup>
+                </div>
+
+                <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
+                
+                <div className="clear"></div>
+
             </div>
 
             <div className="accordion-heading" onClick={() => handleClick(1) } >Documentos criados</div>
            
             {showAccordion1 && (
                 <div className="accordion-content" >
-                    Documentos criados
+                    <TableMesa></TableMesa>
                 </div>
             )}
 
@@ -53,7 +65,7 @@ function Mesa() {
             
             {showAccordion2 && (
                 <div className="accordion-content" >
-                    Documentos recebidos
+                    <TableMesa></TableMesa>
                 </div>
             )}
 
@@ -61,7 +73,7 @@ function Mesa() {
             
             {showAccordion3 && (
                 <div className="accordion-content" >
-                    Documentos tramitados
+                    <TableMesa></TableMesa>
                 </div>
             )}
 
@@ -69,7 +81,7 @@ function Mesa() {
             
             {showAccordion4 && (
                 <div className="accordion-content" >
-                    Documentos assinados
+                    <TableMesa></TableMesa>
                 </div>
             )}
 
