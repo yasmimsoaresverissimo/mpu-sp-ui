@@ -32,7 +32,8 @@ function Header() {
                 <a href="#" onClick={() => setShowMenu(true)}>
                     <CloseIcon sx={{ color: 'white' }} fontSize="large" />
                 </a>
-                <li className="navbar-usuario">Gabriel Filipy</li>
+                <li className="navbar-usuario">Loiane Moskviq</li>
+                <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  
                 <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
                 <li className="navbar-menu-item"><Link to="/usuario">Cadastro usuário</Link></li>
             </ul>

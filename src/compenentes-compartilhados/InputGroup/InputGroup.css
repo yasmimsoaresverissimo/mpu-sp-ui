@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    width: 100%;
+}
+
+button {
+    border: none;
+    height: 35px;
+    background-color: #09f;
+    color: white;
+    cursor: pointer;
+}
+
+input {
+    width: 100%;
+    border: 0.10px solid rgb(218, 216, 216);
+    height: 31px;
+    color: rgb(80, 80, 80);
+    font-size: 19px;
+}
+
+input:focus {
+    border-color: #c1c1c1;
+    outline: none;
+}
