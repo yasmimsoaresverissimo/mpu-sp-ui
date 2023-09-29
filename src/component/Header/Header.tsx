@@ -37,6 +37,7 @@ function Header() {
                 <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
                 <li className="navbar-menu-item"><Link to="/usuario">Cadastro usuário</Link></li>
                 <li className="navbar-menu-item"><Link to="/visualizar-documento">Visualizar documento</Link></li>
+                <li className="navbar-menu-item"><Link to="/listarusuario">Lista de Usuários</Link></li>
             </ul>
 
         </div>
