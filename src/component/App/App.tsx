@@ -6,6 +6,7 @@ import Documento from '../Documento/Documento';
 import Login from '../Login/Login';
 import Formulario from '../Formulario/Formulario';
 import Mesa from '../Mesa/Mesa';
+import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
 
 function App() { 
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path="/documento" element={<Documento />} ></Route>
           <Route path="/usuario" element={<Formulario />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
-
+          <Route path="/visualizar-documento" element={<VisualizarDoc />} ></Route>
         </Routes>
     </div>
   );
