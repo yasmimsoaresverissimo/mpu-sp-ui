@@ -36,6 +36,7 @@ function Header() {
                 <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  
                 <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
                 <li className="navbar-menu-item"><Link to="/usuario">Cadastro usuário</Link></li>
+                <li className="navbar-menu-item"><Link to="/listarusuario">Lista de Usuários</Link></li>
             </ul>
 
         </div>
