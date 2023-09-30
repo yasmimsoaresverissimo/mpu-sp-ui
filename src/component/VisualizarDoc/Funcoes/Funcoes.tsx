@@ -3,6 +3,7 @@ import '../VisualizarDoc.css'
 import Button from "../../../compenentes-compartilhados/Button/Button"; 
 import { Grid } from "@mui/material";
 import { deflate } from "zlib";
+import { Link } from "react-router-dom";
 
 function Funcoes() {
     return <div className="AppFucoes"> 
@@ -21,6 +22,12 @@ function Funcoes() {
                 </Grid>
                 <Grid item xs={2}> 
                 <Button value="Incluir Cossignatário"/>
+                </Grid>
+                <Grid item xs={2}> 
+                <Link to="/visualizar-documento-completo">
+                 <Button value="Visualizar Documento Completo" />
+                </Link>
+               
                 </Grid>
             </Grid>
     </div>
