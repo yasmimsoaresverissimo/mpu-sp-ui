@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
         <Routes>
+          <Route path="/" element={<Mesa />} ></Route>
           <Route path="/mesa-virtual" element={<Mesa />} ></Route>
           <Route path="/documento" element={<Documento />} ></Route>
           <Route path="/usuario" element={<Formulario />} ></Route>
