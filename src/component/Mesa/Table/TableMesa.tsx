@@ -1,7 +1,20 @@
 import React from "react";
 import './TableMesa.scss'
+import { Link } from "react-router-dom";
 
 function TableMesa() {
+
+    var listaDocumentos = [
+        { 'tempo': '15 horas', 
+            'codigo': 'MEM-0006', 
+            'modelo': 'Memorando'
+        },
+        { 'tempo': '2 minutos', 
+        'codigo': 'PROC-0006', 
+        'modelo': 'Processo'
+        }
+    ]
+
     return <table className="AppTable">
         <thead>
             <tr>
@@ -11,16 +24,24 @@ function TableMesa() {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>29/09/2023 18:50;55</td>
-                <td>documento;criado;detran</td>
-                <td>Processo</td>
-            </tr>
-            <tr>
-                <td>28/09/2023 19:10;35</td>
-                <td>novo documento;criado documento;secretaria da educação</td>
-                <td>Memorando</td>
-            </tr>
+            
+                {
+
+                    listaDocumentos.map(( listValue, index ) => {
+                        return (
+                        <tr key={index}>
+                            <td>{listValue.tempo}</td>
+                            <td><Link to={
+                                {pathname: `/visualizar-documento/${listValue.codigo}`}
+                                } >{listValue.codigo}</Link></td>
+                            <td>{listValue.modelo}</td>
+                        </tr>
+                        );
+                    })
+
+                }
+                
+            
         </tbody>
     </table>
 }

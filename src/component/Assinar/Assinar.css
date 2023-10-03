@@ -1,0 +1,17 @@
+.AppModal{
+    width: 400px;
+    padding: 25px;
+}
+
+.AppModal Button {
+    margin-top: 20px;
+}
+
+.AppIcon {
+    width: 100%;
+    text-align: center;
+}
+
+.AppIcon img {
+    width: 120px;
+}

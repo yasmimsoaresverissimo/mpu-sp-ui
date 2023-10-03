@@ -16,7 +16,7 @@ function App() {
           <Route path="/documento" element={<Documento />} ></Route>
           <Route path="/usuario" element={<Formulario />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
-          <Route path="/visualizar-documento" element={<VisualizarDoc />} ></Route>
+          <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listarusuario" element={<ListarUsuario />} ></Route>
         </Routes>
     </div>

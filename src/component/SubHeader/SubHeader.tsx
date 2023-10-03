@@ -16,7 +16,7 @@ function SubHeader() {
                     </Grid> 
                     <Grid item xs={5}>
                         <div className="Avatar">
-                            <Chip avatar={<Avatar sx={{ background: 'white' }}>G</Avatar>} label="Gabriel Filipy" />
+                            <Chip avatar={<Avatar sx={{ background: 'white' }}>G</Avatar>} label="Yasmin Soares" />
                         </div> 
                         </Grid>
                         <Grid item xs={1}> 
