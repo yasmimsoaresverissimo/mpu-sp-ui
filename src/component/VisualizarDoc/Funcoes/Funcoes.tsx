@@ -3,6 +3,7 @@ import '../VisualizarDoc.css'
 import Button from "../../../compenentes-compartilhados/Button/Button"; 
 import { Grid } from "@mui/material";
 import Assinar from '../../Assinar/Assinar';
+import AssinarComCertificadoDigital from '../../AssinarComCertificadoDigital/AssinarComCertificadoDigital';
 
 export interface FuncoesProp {
     codigoDocumento?: string
@@ -48,6 +49,8 @@ function Funcoes(props: FuncoesProp) {
                 radius={true}
                 codigoDocumento={ props.codigoDocumento }
             />
+
+
     </div>
 
 }
