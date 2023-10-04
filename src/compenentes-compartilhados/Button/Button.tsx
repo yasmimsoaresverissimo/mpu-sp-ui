@@ -36,9 +36,16 @@ else if(props.color === 'alert'){
         >
             { props.value }
         </button>
-}else if(props.color === 'create') {
+} else if(props.color === 'create') {
     return <button 
             className="AppButton AppButtonCreate"
+            onClick={ props.onClick }
+            >
+            { props.value }
+        </button>
+} else if(props.color === 'grey') {
+    return <button 
+            className="AppButton AppButtonGrey"
             onClick={ props.onClick }
             >
             { props.value }

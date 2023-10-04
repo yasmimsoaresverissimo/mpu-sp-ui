@@ -6,6 +6,7 @@ import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import './Documento.css'
 import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
+import { Link } from "react-router-dom";
 
 function Documento() {
 
@@ -35,13 +36,14 @@ function Documento() {
 
             <Grid container spacing={1}>
                 <Grid item xs={2}>
-                    <Button value="Criar"></Button>
+                    <Button value="Criar" color="create" />
                 </Grid>
                 <Grid item xs={2}>
-                    <Button value="Visualizar"></Button>
+                    <Button value="Visualizar" />
                 </Grid>
                 <Grid item xs={2}>
-                    <Button value="Cancelar"></Button>
+                <Link className='BtnCriarDocumento AppCriarDocumento' to="/mesa-virtual"><Button value="Cancelar" color="grey" /></Link>
+                    
                 </Grid>
             </Grid>
 
