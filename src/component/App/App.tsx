@@ -9,7 +9,7 @@ import Mesa from '../Mesa/Mesa';
 import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
 import ListarUsuario from '../Usuario/Tabela/TabelaUsuario'
 import FormularioUsuario from '../Usuario/FormularioUsuario';
-import TabelaUsuario from '../Usuario/Tabela/TabelaUsuario';
+import UsuarioHome from '../Usuario/UsuarioHome';
 function App() { 
   return (
     <div className="App">
@@ -17,10 +17,9 @@ function App() {
           <Route path="/mesa-virtual" element={<Mesa />} ></Route>
           <Route path="/documento" element={<Documento />} ></Route> 
           <Route path="/formulario-usuario" element={<FormularioUsuario />} ></Route>
-          <Route path="/listar-usuario" element={<TabelaUsuario />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
-          <Route path="/listarusuario" element={<ListarUsuario />} ></Route>
+          <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>
         </Routes>
     </div>
     

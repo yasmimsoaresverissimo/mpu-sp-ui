@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Conteudo from '../../../compenentes-compartilhados/Conteudo/Conteudo'
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import InputGroup from '../../../compenentes-compartilhados/InputGroup/InputGroup'
 import { Link } from 'react-router-dom';
 import './TabelaUsuario.scss'
 import Button from '../../../compenentes-compartilhados/Button/Button';
+import { listarUsuarios } from '../Servico/usuario.service';
 
-function TabelaUsuario () {
+function TabelaUsuario() {
+
+    const [ usuarios, setUsuarios ] = useState([])
+
+    async function fetchData() {
+        const _usuarios = await listarUsuarios()
+        setUsuarios(_usuarios)
+    }
+
+    useEffect(() => {
+        fetchData()
+        console.log(usuarios)
+    }, [])
+
     return <Conteudo >
     <div className='HeaderUsuario'>
+
         <h2>Lista de Usuários <AssignmentIndIcon /></h2>
 
         <div className='left'>
@@ -29,16 +44,25 @@ function TabelaUsuario () {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Fulano</td>
-                    <td>Setor1</td>
-                    <td>(x)xxxxx-xxxx</td>
-                </tr>
+                
+            {
+
+                usuarios.map(( listValue:any, index:any ) => {
+                    return (
+                        <tr key={index}>
+                            <td>{ listValue.nome }</td>
+                            <td>{ listValue.setor }</td>
+                            <td>{ listValue.telefone }</td> 
+                        </tr>
+                    );
+                })
+
+            }
+
             </tbody>
 
         </table>
     
-
     </Conteudo>
 
 }
