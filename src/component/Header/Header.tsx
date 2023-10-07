@@ -14,11 +14,11 @@ function Header() {
     
     return <div className="AppHeader">
             <Conteudo>
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <img className="Logo" src={LogoHeader} alt="logo do cliente" />
+                <Grid container spacing={12}>
+                    <Grid item xs={9}>
+                        <Link to="/mesa-virtual">MPU SP</Link>
                     </Grid> 
-                    <Grid item xs={6}>
+                    <Grid item xs={3}>
                         <div className="menu">
                             <a href="#" onClick={() => setShowMenu(false)}>
                                 <MenuIcon sx={{ color: 'white' }} fontSize="large" />
@@ -35,9 +35,7 @@ function Header() {
                 <li className="navbar-usuario">Loiane Moskviq</li>
                 <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  
                 <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
-                <li className="navbar-menu-item"><Link to="/usuario">Cadastro usuário</Link></li>
-                <li className="navbar-menu-item"><Link to="/visualizar-documento">Visualizar documento</Link></li>
-                <li className="navbar-menu-item"><Link to="/listarusuario">Lista de Usuários</Link></li>
+                <li className="navbar-menu-item"><Link to="/listar-usuario">Cadastro usuário</Link></li>
             </ul>
 
         </div>

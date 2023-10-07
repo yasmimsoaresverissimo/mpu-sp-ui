@@ -7,6 +7,7 @@ declare interface ButtonProps {
     value?: string
     appnedIcon?: any
     color?: any
+    children?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
@@ -16,7 +17,7 @@ if(props.color === 'primary'){
             className="AppButtonPrimary"
             onClick={ props.onClick }
         >
-            { props.value }
+            { props.children }
         </button>
         } else if(props.color ==='danger'){
         return <button 
@@ -34,11 +35,18 @@ else if(props.color === 'alert'){
             className="AppButton AppButtonAlert"
             onClick={ props.onClick }
         >
-            { props.value }
+            { props.children }
         </button>
-}else if(props.color === 'create') {
+} else if(props.color === 'create') {
     return <button 
             className="AppButton AppButtonCreate"
+            onClick={ props.onClick }
+            >
+            { props.value }
+        </button>
+} else if(props.color === 'grey') {
+    return <button 
+            className="AppButton AppButtonGrey"
             onClick={ props.onClick }
             >
             { props.value }
@@ -48,7 +56,7 @@ else if(props.color === 'alert'){
             className="AppButton AppButtonPrimary"
             onClick={ props.onClick }
         >
-            { props.value }
+            { props.children }
         </button>
  
 
