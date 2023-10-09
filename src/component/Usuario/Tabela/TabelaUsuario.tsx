@@ -5,20 +5,51 @@ import InputGroup from '../../../compenentes-compartilhados/InputGroup/InputGrou
 import { Link } from 'react-router-dom';
 import './TabelaUsuario.scss'
 import Button from '../../../compenentes-compartilhados/Button/Button';
-import { listarUsuarios } from '../Servico/usuario.service';
+import { buscarUsuarios, listarUsuarios } from '../Servico/usuario.service';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+
+export class UsuarioSearch {
+    nome?: any
+    id?: string
+    cpf?: string
+    endereco?: string
+}
 
 function TabelaUsuario() {
 
     const [ usuarios, setUsuarios ] = useState([])
+    const [ usuario, setUsuario ] = useState('')
+    const [ opcao, setOpcao ] = useState('')
 
     async function fetchData() {
         const _usuarios = await listarUsuarios()
         setUsuarios(_usuarios)
     }
 
+    async function buscar() {
+        
+        if(opcao === 'nome') {
+            const _usus = await buscarUsuarios(usuario, '', '', '')
+            setUsuarios(_usus) 
+        } else if(opcao === 'id') {
+            const _usus = await buscarUsuarios('', usuario, '', '')
+            setUsuarios(_usus)
+        } else if(opcao === 'cpf') {
+           const  _usus = await buscarUsuarios('', '', usuario, '')
+            setUsuarios(_usus)
+        } else if(opcao === 'endereco') {
+            const _usus = await buscarUsuarios('', '', '', usuario)
+            setUsuarios(_usus)
+        }
+        
+    }
+
     useEffect(() => {
         fetchData()
-        console.log(usuarios)
     }, [])
 
     return <Conteudo >
@@ -27,7 +58,20 @@ function TabelaUsuario() {
         <h2>Lista de Usuários <AssignmentIndIcon /></h2>
 
         <div className='left'>
-            <InputGroup></InputGroup>
+            <InputGroup onChange={ (e) => setUsuario(e.target.value) } onClick={ buscar }></InputGroup>
+                <FormControl>
+                <FormLabel id="demo-row-radio-buttons-group-label">Escolha como deseja buscar:</FormLabel>
+                <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                >
+                    <FormControlLabel value="nome" control={<Radio onChange={ (e) => setOpcao(e.target.value) } />} label="Nome" />
+                    <FormControlLabel value="id" control={<Radio onChange={ (e) => setOpcao(e.target.value) }/>} label="Identificador" />
+                    <FormControlLabel value="cpf" control={<Radio onChange={ (e) => setOpcao(e.target.value) }/>} label="CPF" />
+                    <FormControlLabel value="endereco" control={<Radio onChange={ (e) => setOpcao(e.target.value) }/>} label="Endereço" />
+                </RadioGroup>
+            </FormControl>
         </div>
     
         <Link className='BtnCriarDocumento AppCriarDocumento right' to="/formulario-usuario"><Button value='Novo usuário' color='create'></Button></Link>
@@ -37,12 +81,12 @@ function TabelaUsuario() {
     </div>
     <table className="AppTabelaUsuario">
         <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Setor</th>
-                    <th>Contato</th>
-                </tr>
-            </thead>
+            <tr>
+                <th>Nome</th>
+                <th>Setor</th>
+                <th>Contato</th>
+            </tr>
+        </thead>
             <tbody>
                 
             {
