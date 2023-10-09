@@ -39,7 +39,7 @@ function Documento() {
                     <Button value="Criar" color="create" />
                 </Grid>
                 <Grid item xs={2}>
-                    <Button value="Visualizar" />
+                    <Button>Visualizar</Button>
                 </Grid>
                 <Grid item xs={2}>
                 <Link className='BtnCriarDocumento AppCriarDocumento' to="/mesa-virtual"><Button value="Cancelar" color="grey" /></Link>

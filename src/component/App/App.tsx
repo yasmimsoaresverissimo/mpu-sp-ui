@@ -7,9 +7,8 @@ import Login from '../Login/Login';
 import Formulario from '../Usuario/FormularioUsuario';
 import Mesa from '../Mesa/Mesa';
 import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
-import ListarUsuario from '../ListarUsuario/ListarUsuario'
+import TabelaUsuario from '../Usuario/Tabela/TabelaUsuario';
 import VisualizarDocCompleto from '../VisualizarDocCompleto/VisualizarDocCompleto';
-import ListarUsuario from '../Usuario/Tabela/TabelaUsuario'
 import FormularioUsuario from '../Usuario/FormularioUsuario';
 import UsuarioHome from '../Usuario/UsuarioHome';
 
@@ -23,7 +22,7 @@ function App() {
           <Route path="/formulario-usuario" element={<FormularioUsuario />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/visualizar-documento" element={<VisualizarDoc />} ></Route>
-          <Route path="/listarusuario" element={<ListarUsuario />} ></Route>
+          <Route path="/listarusuario" element={<TabelaUsuario />} ></Route>
           <Route path="/visualizar-documento-completo" element={<VisualizarDocCompleto />} ></Route>
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>

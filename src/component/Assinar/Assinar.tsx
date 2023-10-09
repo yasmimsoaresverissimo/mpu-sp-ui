@@ -45,7 +45,7 @@ function Assinar(props: SimpleDialogProps) {
         </FormControl>
         }
   
-        <Button value='Selecionar'/>
+        <Button>Selecionar</Button>
         </div>
       </Dialog>
     );
