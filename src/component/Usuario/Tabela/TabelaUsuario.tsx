@@ -31,21 +31,8 @@ function TabelaUsuario() {
     }
 
     async function buscar() {
-        
-        if(opcao === 'nome') {
-            const _usus = await buscarUsuarios(usuario, '', '', '')
-            setUsuarios(_usus) 
-        } else if(opcao === 'id') {
-            const _usus = await buscarUsuarios('', usuario, '', '')
-            setUsuarios(_usus)
-        } else if(opcao === 'cpf') {
-           const  _usus = await buscarUsuarios('', '', usuario, '')
-            setUsuarios(_usus)
-        } else if(opcao === 'endereco') {
-            const _usus = await buscarUsuarios('', '', '', usuario)
-            setUsuarios(_usus)
-        }
-        
+        const _usus = await buscarUsuarios(usuario)
+        setUsuarios(_usus)
     }
 
     useEffect(() => {
@@ -66,10 +53,7 @@ function TabelaUsuario() {
                     aria-labelledby="demo-row-radio-buttons-group-label"
                     name="row-radio-buttons-group"
                 >
-                    <FormControlLabel value="nome" control={<Radio onChange={ (e) => setOpcao(e.target.value) } />} label="Nome" />
-                    <FormControlLabel value="id" control={<Radio onChange={ (e) => setOpcao(e.target.value) }/>} label="Identificador" />
-                    <FormControlLabel value="cpf" control={<Radio onChange={ (e) => setOpcao(e.target.value) }/>} label="CPF" />
-                    <FormControlLabel value="endereco" control={<Radio onChange={ (e) => setOpcao(e.target.value) }/>} label="Endereço" />
+                    
                 </RadioGroup>
             </FormControl>
         </div>

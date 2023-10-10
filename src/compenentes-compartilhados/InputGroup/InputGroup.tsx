@@ -5,7 +5,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 declare interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string
-    onClick?: () => void
 }
 
 const InputGroup: React.FC<InputProps> = (props) => {
@@ -13,7 +12,7 @@ const InputGroup: React.FC<InputProps> = (props) => {
     return   <div className="flex-container">
             
                 <div><input { ...props } /></div>
-                <div><button onClick={ props.onClick }><SearchIcon></SearchIcon></button></div>
+                <div><button><SearchIcon></SearchIcon>{ props.children }</button></div>
             </div>
 }
 
