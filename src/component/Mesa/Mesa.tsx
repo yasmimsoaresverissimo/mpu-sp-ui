@@ -73,7 +73,7 @@ function Mesa() {
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /></h2>
 
-                <div className='left'>
+                <div className='leftMesa'>
                     <input onChange={ (e) => setDocumento(e.target.value) }></input>
                     <button onClick={() => buscarDocumentoPelaSigla(documento)}>Buscar</button>
                 </div>
