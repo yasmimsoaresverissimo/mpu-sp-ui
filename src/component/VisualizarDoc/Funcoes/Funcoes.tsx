@@ -6,6 +6,7 @@ import { deflate } from "zlib";
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import Assinar from '../../Assinar/Assinar'; 
+import Incluir from '../../Incluir-Consignatario/Incluir';
 
 declare interface FuncoesProp {
     codigoDocumento?: string
@@ -36,14 +37,19 @@ const Excluir=()=>{
 
 function Funcoes(props: FuncoesProp) {
 
-    const [open, setOpen] = React.useState(false);
+    const [openAssinar, setOpenAssinar] = React.useState(false);
+    const [openIncluir, setOpenIncluir] = React.useState(false);
 
     const handleClose = (value: string) => {
-        setOpen(false);
+        setOpenAssinar(false);
+        setOpenIncluir(false);
     };
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const handleAssinarClick = () => {
+        setOpenAssinar(true);
+    };
+    const handleIncluirClick = () => {
+        setOpenIncluir(true);
     };
 
     return <div className="AppFucoes"> 
@@ -52,7 +58,7 @@ function Funcoes(props: FuncoesProp) {
                 <Button>Finalizar</Button> 
             </Grid>
             <Grid item xs={1.4}> 
-                <Button onClick={handleClickOpen}>Assinar</Button>
+                <Button onClick={handleAssinarClick}>Assinar</Button>
             </Grid>
             <Grid item xs={1.4}>
                 <Button>Editar</Button>
@@ -62,7 +68,7 @@ function Funcoes(props: FuncoesProp) {
             </Grid>
             
             <Grid item xs={2}> 
-                <Button>Incluir Cossignatário</Button>
+                <Button onClick={handleIncluirClick}>Incluir Cossignatário</Button>
             </Grid>
             <Grid item xs={2}> 
                 <Link to="/visualizar-documento-completo">
@@ -74,12 +80,19 @@ function Funcoes(props: FuncoesProp) {
 
             <Assinar
                 selectedValue={'selectedValue'}
-                open={open}
+                open={openAssinar}
                 onClose={handleClose}
                 titulo='Qual forma de assinatura?'
                 tituloHeader='Assinar documento'
                 radius={true}
                 codigoDocumento={ props.codigoDocumento }
+            />
+            <Incluir
+                selectedValue={'selectedValue'}
+                open={openIncluir}
+                onClose={handleClose}
+                titulo='Incluir Consignatário'
+                radius={true}
             />
     </div>
 

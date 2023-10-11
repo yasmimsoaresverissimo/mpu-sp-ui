@@ -1,0 +1,18 @@
+.AppModal{
+    width: 300px;
+    padding: 25px;
+}
+
+.AppModal Button {
+    margin-top: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-field {
+    margin-right: 10px; 
+    text-align: left;
+}
