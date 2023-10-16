@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../VisualizarDoc.css'
 import Button from "../../../compenentes-compartilhados/Button/Button"; 
 import { Grid } from "@mui/material";
+import Assinar from '../../Assinar/Assinar';
+import AssinarComCertificadoDigital from '../../AssinarComCertificadoDigital/AssinarComCertificadoDigital';
 import { deflate } from "zlib";
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
@@ -81,6 +83,8 @@ function Funcoes(props: FuncoesProp) {
                 radius={true}
                 codigoDocumento={ props.codigoDocumento }
             />
+
+
     </div>
 
 }
