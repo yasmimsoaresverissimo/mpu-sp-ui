@@ -9,6 +9,11 @@
     height: 35px;
     font-size: 16px;
 }
+
+.AppButtonGrey{
+    background-color: rgb(115, 116, 116);
+}
+
 .AppButtonPrimary{
     background-color: #09f;
 }

@@ -1,0 +1,25 @@
+.AppModal{
+    width: 400px;
+    padding: 25px;
+    text-align: center;
+}
+
+.AppModal Button {
+    margin-top: 20px;
+}
+
+.AppIcon {
+    width: 100%;
+    text-align: center;
+}
+
+.AppIcon img {
+    width: 120px;
+}
+
+.AppLink {
+    width: 100%;
+    background-color: red;
+    height: 30PX;
+    cursor: pointer;
+}

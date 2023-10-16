@@ -69,6 +69,7 @@ function Assinar(props: SimpleDialogProps) {
         }
   
         <Button value='Selecionar' onClick={handleClickOpenCertificado}/>
+        <Button>Selecionar</Button>
         </div>
       </Dialog>
 
