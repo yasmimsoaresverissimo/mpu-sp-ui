@@ -8,10 +8,10 @@ export const listarUsuarios = () => {
         .then(response => response.data); 
 }
 
-export const buscarUsuarios = (nome?:string, id?:string, cpf?:string, endereco?:string) => {
+export const buscarUsuarios = (nome?:string) => {
     console.log(nome)
     return http
-        .get(`/usuario/buscar?nome=${nome}&id=${id}&cpf=${cpf}&endereco=${endereco}`)
+        .get(`/usuario/buscar?nome=${nome}`)
         .then(response => response.data); 
 } 
 

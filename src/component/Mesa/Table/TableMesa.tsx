@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './TableMesa.scss'
 import { Link } from "react-router-dom";
+import { buscarDocumento, listarDocumentos } from "../Servico/documento.servico";
+import { DocumentoModel } from "../../Documento/Documento";
 
 function TableMesa() {
 
-    var listaDocumentos = [
-        { 'tempo': '15 horas', 
-            'codigo': 'MEM-0006', 
-            'modelo': 'Memorando'
-        },
-        { 'tempo': '2 minutos', 
-        'codigo': 'PROC-0006', 
-        'modelo': 'Processo'
-        }
-    ]
+    const [documentos, setDocumentos] = useState([])
+
+    async function fetchData() {
+        const _documentos = await listarDocumentos()
+        setDocumentos(_documentos)
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
     return <table className="AppTable">
         <thead>
@@ -27,13 +29,13 @@ function TableMesa() {
             
                 {
 
-                    listaDocumentos.map(( listValue, index ) => {
+                    documentos.map(( listValue:any, index:any ) => {
                         return (
                         <tr key={index}>
                             <td>{listValue.tempo}</td>
                             <td><Link to={
-                                {pathname: `/visualizar-documento/${listValue.codigo}`}
-                                } >{listValue.codigo}</Link></td>
+                                {pathname: `/visualizar-documento/${listValue.sigla}`}
+                                } >{listValue.sigla}</Link></td>
                             <td>{listValue.modelo}</td>
                         </tr>
                         );

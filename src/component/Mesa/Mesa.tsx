@@ -6,8 +6,14 @@ import TableMesa from './Table/TableMesa';
 import Button from '../../compenentes-compartilhados/Button/Button';
 import { Link } from 'react-router-dom';
 import FolderCopyIcon from '@mui/icons-material/FolderCopy';
+import { buscarDocumento } from './Servico/documento.servico';
+import { DocumentoModel } from '../Documento/Documento';
+import Modal from './Modal/Modal';
+import Swal from 'sweetalert2';
 
 function Mesa() {
+
+    const [documento, setDocumento] = useState("")
 
     const [showAccordion1, setAccordion1] = useState(true)
     const [showAccordion2, setAccordion2] = useState(false)
@@ -39,12 +45,37 @@ function Mesa() {
         
     }
 
+    //Buscar documento
+    async function buscarDocumentoPelaSigla(sigla:string) {
+        try {
+        const _documento = await buscarDocumento(sigla)
+        setDocumento(_documento.sigla)
+        setOpen(true);
+        } catch(err) {
+            if (err instanceof Error) 
+              Swal.fire('Oops!', err.message, 'error')
+        }
+    }
+
+    //Modal
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = (value: string) => {
+        setOpen(false);
+    };
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
     return <Conteudo >
+        
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /></h2>
 
-                <div className='left'>
-                    <InputGroup></InputGroup>
+                <div className='leftMesa'>
+                    <input onChange={ (e) => setDocumento(e.target.value) }></input>
+                    <button onClick={() => buscarDocumentoPelaSigla(documento)}>Buscar</button>
                 </div>
 
                 <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
@@ -85,7 +116,17 @@ function Mesa() {
                 </div>
             )}
 
+        <Modal
+            selectedValue={'selectedValue'}
+            open={open}
+            onClose={handleClose}
+            titulo='Desaja visualizar esse documento?'
+            tituloHeader='Visualizar documento'
+            siglaDocumento={documento}
+        />
+
         </Conteudo>
+        
     
 }
 
