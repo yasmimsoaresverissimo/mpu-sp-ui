@@ -11,6 +11,7 @@ import TabelaUsuario from '../Usuario/Tabela/TabelaUsuario';
 import VisualizarDocCompleto from '../VisualizarDocCompleto/VisualizarDocCompleto';
 import FormularioUsuario from '../Usuario/FormularioUsuario';
 import UsuarioHome from '../Usuario/UsuarioHome';
+import FormularioSetor from '../Setor/FormularioSetor';
 import PaginaNaoEncontrada from '../PaginaNaoEncontrada/PaginaNaoEncontrada';
 
 function App() { 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/visualizar-documento-completo" element={<VisualizarDocCompleto />} ></Route>
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>
+          <Route path="/FormularioSetor" element={<FormularioSetor />} ></Route>
           <Route path="*" element={<PaginaNaoEncontrada/>} ></Route>
         </Routes>
     </div>
