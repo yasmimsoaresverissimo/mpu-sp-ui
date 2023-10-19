@@ -7,7 +7,6 @@ import AssinarComCertificadoDigital from '../../AssinarComCertificadoDigital/Ass
 import { deflate } from "zlib";
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
-import Assinar from '../../Assinar/Assinar'; 
 import Incluir from '../../Incluir-Consignatario/Incluir';
 
 declare interface FuncoesProp {
