@@ -13,6 +13,8 @@ import FormularioUsuario from '../Usuario/FormularioUsuario';
 import UsuarioHome from '../Usuario/UsuarioHome';
 import FormularioSetor from '../Setor/FormularioSetor';
 import PaginaNaoEncontrada from '../PaginaNaoEncontrada/PaginaNaoEncontrada';
+import CadastrarSetor from '../CadastrarSetor/CadastrarSetor';
+
 
 function App() { 
   return (
@@ -30,6 +32,7 @@ function App() {
           <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>
           <Route path="/FormularioSetor" element={<FormularioSetor />} ></Route>
           <Route path="*" element={<PaginaNaoEncontrada/>} ></Route>
+          <Route path="/cadastro-setor" element={<CadastrarSetor />} ></Route>
         </Routes>
     </div>
     
