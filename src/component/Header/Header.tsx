@@ -8,11 +8,17 @@ import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import LogoHeader from "./File/logo.png"
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 
-function Header() {
+declare interface HeaderProps {
+
+    hidden?: boolean
+
+}
+
+function Header(props: HeaderProps) {
 
     const [showMenu, setShowMenu] =  useState(true);
     
-    return <div className="AppHeader">
+    return <div className="AppHeader" hidden={ props.hidden }>
             <Conteudo>
                 <Grid container spacing={12}>
                     <Grid item xs={9}>

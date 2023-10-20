@@ -12,6 +12,7 @@ function TableMesa() {
         try {
         const _documentos = await listarDocumentos()
         setDocumentos(_documentos)
+        console.log(_documentos)
         } catch(e) {
             error()
         }
@@ -19,6 +20,7 @@ function TableMesa() {
 
     useEffect(() => {
         fetchData()
+        
     }, [])
 
     const error = () => {

@@ -5,8 +5,14 @@ import { Avatar, Chip, Grid } from "@mui/material";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import Button from "../../compenentes-compartilhados/Button/Button";
 
-function SubHeader() {
-    return <div className="AppSubHeader">
+declare interface SubHeaderProps {
+
+    hidden?: boolean
+
+}
+
+function SubHeader(props: SubHeaderProps) {
+    return <div className="AppSubHeader" hidden={ props.hidden }>
             <Conteudo>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>

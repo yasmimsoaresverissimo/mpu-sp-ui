@@ -4,6 +4,7 @@ import Button from '../../compenentes-compartilhados/Button/Button';
 import CircularProgressWithLabel from '../../compenentes-compartilhados/CircularProgressWithLabel/CircularProgressWithLabel';
 import './AssinarComCertificadoDigital.css'
 import IconAssinar from "./Files/icon-assinar.png"
+import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
 
 
 export interface SimpleDialogProps {
@@ -20,11 +21,13 @@ function AssinarComCertificadoDigital(props: SimpleDialogProps) {
       onClose(selectedValue);
     };
   
-    return (
-      <Dialog onClose={handleClose} open={open} >
-        <DialogTitle>Assinando com certificado digital</DialogTitle>
-        <CircularProgressWithLabel   />
-      </Dialog>
+    return (<Dialog onClose={handleClose} open={open} >
+          <Conteudo>
+            <DialogTitle>Assinando com certificado digital</DialogTitle>
+            <CircularProgressWithLabel   />
+          </Conteudo>
+        </Dialog>
+
     );
 }
 

@@ -4,6 +4,7 @@ import Button from '../../compenentes-compartilhados/Button/Button';
 import './Assinar.css'
 import IconAssinar from "./Files/icon-assinar.png"
 import AssinarComCertificadoDigital from '../AssinarComCertificadoDigital/AssinarComCertificadoDigital';
+import Login from '../Login/Login';
 
 export interface SimpleDialogProps {
     open: boolean;
@@ -26,6 +27,7 @@ function Assinar(props: SimpleDialogProps) {
     };
 
     const [openCertificado, setOpenCertificado] = React.useState(false);
+    const [openSenha, setOpenSenha] = React.useState(true);
 
     const handleCloseCertificado = (value: string) => {
         setOpenCertificado(false);
@@ -36,7 +38,8 @@ function Assinar(props: SimpleDialogProps) {
           onClose(selectedValue);
           setOpenCertificado(true);
         } else if(opcaoAssinatura === 'senha') {
-          alert("Implementar assinar com senha!")
+          onClose(selectedValue);
+          setOpenSenha(false)
         }
     };
 
@@ -68,8 +71,8 @@ function Assinar(props: SimpleDialogProps) {
         </FormControl>
         }
   
-        <Button value='Selecionar' onClick={handleClickOpenCertificado}/>
-        <Button>Selecionar</Button>
+        <Button onClick={handleClickOpenCertificado}>Selecionar</Button>
+        
         </div>
       </Dialog>
 
@@ -79,6 +82,7 @@ function Assinar(props: SimpleDialogProps) {
         open={openCertificado}
         onClose={handleCloseCertificado}
       />
+
 </>
 
     );

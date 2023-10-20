@@ -6,29 +6,25 @@ import Button from '../../compenentes-compartilhados/Button/Button';
 import './Login.css'
 import { Grid } from "@mui/material";
 
-function Login() {
+declare interface LoginProps {
+    titulo?: string
+    txtBotao?: String
+    hidden?: boolean 
+}
+
+function Login(props: LoginProps) {
     return <Conteudo>
         
-        <div className='FormLogin'>
-       <Form titulo={"Login"}>
-            <Input label='Login:'/>
-            <Input label='Senha:'/>
-            <div className='Logar'>
-                <Button value='Logar'></Button>
+        <div className="box" hidden={ props.titulo ? props.hidden : false }>
+            <div className="box-login">
+                <Form titulo={ props.titulo ? props.titulo : "Login"  }>
+                    <Input label='Login:'/>
+                    <Input label='Senha:'/>
+                    
+                    <Button>{ props.txtBotao ? props.txtBotao : "Logar" }</Button>
+                </Form>
             </div>
-            <Grid container spacing={1}>
-                <Grid item xs={6}>
-                <div className='Criar'>
-                    <span>Criar conta</span>
-                </div>
-            </Grid>
-            <Grid item xs={3}>
-                <div className='Botao'>
-                    <Button value='Cadastre-se'></Button>
-                </div>
-            </Grid>
-            </Grid>
-        </Form>   
+               
         </div>
         
     </Conteudo>
