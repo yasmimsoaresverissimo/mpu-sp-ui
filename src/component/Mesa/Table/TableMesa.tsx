@@ -1,21 +1,35 @@
 import React, { useEffect, useState } from "react";
 import './TableMesa.scss'
 import { Link } from "react-router-dom";
-import { buscarDocumento, listarDocumentos } from "../Servico/documento.servico";
-import { DocumentoModel } from "../../Documento/Documento";
+import { listarDocumentos } from "../Servico/documento.servico";
+import Swal from "sweetalert2";
 
 function TableMesa() {
 
     const [documentos, setDocumentos] = useState([])
 
     async function fetchData() {
+        try {
         const _documentos = await listarDocumentos()
         setDocumentos(_documentos)
+        } catch(e) {
+            error()
+        }
     }
 
     useEffect(() => {
         fetchData()
     }, [])
+
+    const error = () => {
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Falha ao tentar uma comunicação com o Servidor!'
+          })
+
+    }
 
     return <table className="AppTable">
         <thead>

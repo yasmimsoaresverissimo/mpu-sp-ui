@@ -48,12 +48,12 @@ function Mesa() {
     //Buscar documento
     async function buscarDocumentoPelaSigla(sigla:string) {
         try {
-        const _documento = await buscarDocumento(sigla)
-        setDocumento(_documento.sigla)
-        setOpen(true);
+            const _documento = await buscarDocumento(sigla)
+            setDocumento(_documento.sigla)
+            setOpen(true);
         } catch(err) {
             if (err instanceof Error) 
-              Swal.fire('Oops!', err.message, 'error')
+              Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
         }
     }
 
