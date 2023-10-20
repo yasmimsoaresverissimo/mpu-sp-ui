@@ -23,7 +23,6 @@ function TabelaUsuario() {
 
     const [ usuarios, setUsuarios ] = useState([])
     const [ usuario, setUsuario ] = useState('')
-    const [ opcao, setOpcao ] = useState('')
 
     async function fetchData() {
         const _usuarios = await listarUsuarios()

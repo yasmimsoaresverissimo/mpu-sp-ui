@@ -8,6 +8,7 @@ import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
 import { Link } from "react-router-dom";
 import { listarDocumentos } from "../Mesa/Servico/documento.servico";
+import User from "../../compenentes-compartilhados/User/User";
 
 export class DocumentoModel {
     sigla?: string
@@ -29,12 +30,8 @@ function Documento() {
                     <Input label="Meus textos padrões"/>
                 </Grid>
 
-                <Grid item xs={4}>
-                    <Input label="Responsável pela assinatura"/>
-                </Grid>
-                <Grid item xs={5}>
-                    <Input label="Nome completo"/>
-                </Grid>
+                <User />
+
             </Grid>
             <Input label="Interessado"/>
             <Input label="Assunto"/>
