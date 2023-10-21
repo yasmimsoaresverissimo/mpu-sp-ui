@@ -1,16 +1,11 @@
 .HeaderMesa {
     width: 100%;
+    margin-bottom: 10px;
+}
+
+.left{
     margin-bottom: 20px;
 }
-
-.leftMesa {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    margin-bottom: -35px;
-    max-width: 275px;
-}
-
 .accordion-heading {
     margin-bottom: 8px;
     padding: 10px;
