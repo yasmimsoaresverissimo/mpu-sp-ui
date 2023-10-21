@@ -1,0 +1,13 @@
+
+.btnComando{
+    display: flex;
+    margin-top: 10px;
+}
+
+.btnCadastrar{
+    margin-top: 30px;
+}
+
+.btnCancelar{
+    margin-top: 30px;
+}
