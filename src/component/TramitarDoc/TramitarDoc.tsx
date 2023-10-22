@@ -6,10 +6,6 @@ import './TramitarDoc.css'
 import { Grid } from "@mui/material";
 import MensagemDeAlerta from "./MensagemDeAlerta/MensagemDeAlerta";
 
-
-
-
-
 function TramitarDoc() {
 
 

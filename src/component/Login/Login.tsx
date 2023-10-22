@@ -4,7 +4,6 @@ import Input from '../../compenentes-compartilhados/Input/Input';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
 import Button from '../../compenentes-compartilhados/Button/Button';
 import './Login.css'
-import { Grid } from "@mui/material";
 
 declare interface LoginProps {
     titulo?: string

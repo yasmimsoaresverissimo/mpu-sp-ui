@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
 import {} from 'react-router'
-import { Route,BrowserRouter,Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Documento from '../Documento/Documento';
 import Login from '../Login/Login';
-import Formulario from '../Usuario/FormularioUsuario';
 import Mesa from '../Mesa/Mesa';
 import VisualizarDoc from '../VisualizarDoc/visualizarDoc';
 import TabelaUsuario from '../Usuario/Tabela/TabelaUsuario';
@@ -40,9 +39,7 @@ function App() {
           <Route path="*" element={<PaginaNaoEncontrada/>} ></Route>
           <Route path="/Tramitar-documento" element={<TramitarDoc />} ></Route>
           <Route path="/cadastro-setor" element={<CadastrarSetor />} ></Route>
-
           <Route path='/permissoes-usuario' element={<PermissoesUsuario />}></Route>
-
           <Route path="/cadastro-orgao" element={<CadastrarOrgao />} ></Route>
 
         </Routes>

@@ -7,7 +7,6 @@ import './Documento.css'
 import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
 import { Link } from "react-router-dom";
-import { listarDocumentos } from "../Mesa/Servico/documento.servico";
 import User from "../../compenentes-compartilhados/User/User";
 
 export class DocumentoModel {

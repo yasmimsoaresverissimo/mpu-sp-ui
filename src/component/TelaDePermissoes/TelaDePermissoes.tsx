@@ -1,6 +1,5 @@
 import React from "react";
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import VerifiedIcon from '@mui/icons-material/Verified';
 
 import "./TelaDePermissoes.scss";  
 
