@@ -27,7 +27,7 @@ function Assinar(props: SimpleDialogProps) {
     };
 
     const [openCertificado, setOpenCertificado] = React.useState(false);
-    const [openSenha, setOpenSenha] = React.useState(true);
+    const [openSenha, setOpenSenha] = React.useState(false);
 
     const handleCloseCertificado = (value: string) => {
         setOpenCertificado(false);
@@ -39,7 +39,7 @@ function Assinar(props: SimpleDialogProps) {
           setOpenCertificado(true);
         } else if(opcaoAssinatura === 'senha') {
           onClose(selectedValue);
-          setOpenSenha(false)
+          setOpenSenha(true)
         }
     };
 
@@ -81,6 +81,12 @@ function Assinar(props: SimpleDialogProps) {
         selectedValue={'selectedValue'}
         open={openCertificado}
         onClose={handleCloseCertificado}
+      />
+
+      <Login 
+        hidden={true}
+        titulo='Assinar com senha' 
+        txtBotao={'Assinar'} 
       />
 
 </>
