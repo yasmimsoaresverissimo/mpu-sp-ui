@@ -2,17 +2,17 @@
 import './CadastrarSetor.scss'
 import React, { useEffect, useState } from 'react';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+
 import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup';
 import { Link } from 'react-router-dom';
 import Button from '../../compenentes-compartilhados/Button/Button';
-import { listarSetores, buscarSetores,buscarIdentificador,cadastrarSetor  } from './Servico/Servico'; 
-import Radio from '@mui/material/Radio';
+import { listarSetores, buscarSetores,buscarIdentificador,cadastrarSetor  } from './Servico/Servico';
+
 import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import { setegid } from 'process';
+import Swal from 'sweetalert2';
 
 export class SetorSearch {
     id?: string
@@ -36,16 +36,22 @@ function CadastrarSetor() {
     
     async function fetchData() {
         try{  
-        const _cadastros = await listarSetores()
-        setCadastros(_cadastros)
-    } catch(e) {
-        alert("Não é possivel conectar ao back-end")
+            const _cadastros = await listarSetores()
+            setCadastros(_cadastros)
+        } catch(err) {
+            if(err instanceof Error)
+            Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
     }
     }
 
     async function buscar() {
-        const _dacstr = await buscarSetores (cadastro)
-        setCadastros(_dacstr)
+        try{
+            const _dacstr = await buscarSetores (cadastro)
+            setCadastros(_dacstr)
+        } catch(err) {
+            if(err instanceof Error)
+            Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
+        }
     }
 
     useEffect(() => {
