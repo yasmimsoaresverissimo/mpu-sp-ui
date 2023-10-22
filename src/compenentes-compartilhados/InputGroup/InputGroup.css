@@ -4,7 +4,9 @@
 }
 
 button {
+    margin: 0 0 0 5px;
     border: none;
+    float: left;
     height: 35px;
     background-color: #09f;
     color: white;
@@ -17,6 +19,8 @@ input {
     height: 31px;
     color: rgb(80, 80, 80);
     font-size: 19px;
+    margin-top: 20px;
+    float: left;
 }
 
 input:focus {

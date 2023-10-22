@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom';
 import './TabelaUsuario.scss'
 import Button from '../../../compenentes-compartilhados/Button/Button';
 import { buscarUsuarios, listarUsuarios } from '../Servico/usuario.service';
-import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import Swal from 'sweetalert2';
 
 export class UsuarioSearch {
     nome?: any
@@ -25,22 +24,32 @@ function TabelaUsuario() {
     const [ usuario, setUsuario ] = useState('')
 
     async function fetchData() {
-        const _usuarios = await listarUsuarios()
-        setUsuarios(_usuarios)
+        try{
+            const _usuarios = await listarUsuarios()
+            setUsuarios(_usuarios)
+        } catch(err) {
+            if(err instanceof Error)
+            Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
+        }
     }
 
     async function buscar() {
-        const _usus = await buscarUsuarios(usuario)
-        setUsuarios(_usus)
+        try{
+            const _usus = await buscarUsuarios(usuario)
+            setUsuarios(_usus)
+    } catch(err) {
+        if(err instanceof Error)
+        Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
+    }
     }
 
     useEffect(() => {
         fetchData()
     }, [])
 
-    return <Conteudo >
+    return <Conteudo > 
     <div className='HeaderUsuario'>
-
+        
         <h2>Lista de Usuários <AssignmentIndIcon /></h2>
 
         <div className='left'>
