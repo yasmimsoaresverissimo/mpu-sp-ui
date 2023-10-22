@@ -15,6 +15,8 @@ import FormularioSetor from '../Setor/FormularioSetor';
 import PaginaNaoEncontrada from '../PaginaNaoEncontrada/PaginaNaoEncontrada';
 import TramitarDoc from '../TramitarDoc/TramitarDoc';
 import CadastrarSetor from '../CadastrarSetor/CadastrarSetor';
+import CadastrarOrgao from '../CadastrarOrgao/CadastrarOrgao';
+import FormularioOrgao from '../Orgao/FormularioOrgao';
 
 function App() { 
   return (
@@ -31,9 +33,11 @@ function App() {
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>
           <Route path="/FormularioSetor" element={<FormularioSetor />} ></Route>
+          <Route path="/FormularioOrgao" element={<FormularioOrgao />} ></Route>
           <Route path="*" element={<PaginaNaoEncontrada/>} ></Route>
           <Route path="/Tramitar-documento" element={<TramitarDoc />} ></Route>
           <Route path="/cadastro-setor" element={<CadastrarSetor />} ></Route>
+          <Route path="/cadastro-orgao" element={<CadastrarOrgao />} ></Route>
         </Routes>
     </div>
     
