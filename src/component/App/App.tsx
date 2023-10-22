@@ -15,6 +15,7 @@ import FormularioSetor from '../Setor/FormularioSetor';
 import PaginaNaoEncontrada from '../PaginaNaoEncontrada/PaginaNaoEncontrada';
 import TramitarDoc from '../TramitarDoc/TramitarDoc';
 import CadastrarSetor from '../CadastrarSetor/CadastrarSetor';
+import PermissoesUsuario from '../TelaDePermissoes/TelaDePermissoes';
 
 function App() { 
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="*" element={<PaginaNaoEncontrada/>} ></Route>
           <Route path="/Tramitar-documento" element={<TramitarDoc />} ></Route>
           <Route path="/cadastro-setor" element={<CadastrarSetor />} ></Route>
+          <Route path='/permissoes-usuario' element={<PermissoesUsuario />}></Route>
         </Routes>
     </div>
     
