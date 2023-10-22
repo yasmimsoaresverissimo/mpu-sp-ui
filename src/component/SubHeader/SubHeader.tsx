@@ -26,9 +26,7 @@ function SubHeader(props: SubHeaderProps) {
                         </div> 
                         </Grid>
                         <Grid item xs={1}> 
-                        <div className="BtnSair">
                             <Button value="Sair" color="danger" />
-                        </div> 
                         </Grid>
                     
                 </Grid>

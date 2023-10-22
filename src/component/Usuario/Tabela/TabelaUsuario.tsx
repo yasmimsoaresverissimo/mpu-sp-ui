@@ -49,7 +49,7 @@ function TabelaUsuario() {
 
     return <Conteudo > 
     <div className='HeaderUsuario'>
-
+        
         <h2>Lista de Usuários <AssignmentIndIcon /></h2>
 
         <div className='left'>

@@ -10,7 +10,9 @@ import { buscarDocumento } from './Servico/documento.servico';
 import { DocumentoModel } from '../Documento/Documento';
 import Modal from './Modal/Modal';
 import Swal from 'sweetalert2';
-
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 function Mesa() {
 
     const [documento, setDocumento] = useState("")
@@ -73,12 +75,11 @@ function Mesa() {
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /></h2>
 
-                <div className='leftMesa'>
-                    <input onChange={ (e) => setDocumento(e.target.value) }></input>
-                    <button onClick={() => buscarDocumentoPelaSigla(documento)}>Buscar</button>
-                </div>
+                <div className='left'>
+            <InputGroup onChange={ (e) => setDocumento(e.target.value) } onClick={ () => buscarDocumentoPelaSigla(documento)}placeholder='Buscar Documento.....'></InputGroup>
+        </div>
 
-                <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
+            <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
                 
                 <div className="clear"></div>
 
