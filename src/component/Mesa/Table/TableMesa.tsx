@@ -20,7 +20,7 @@ function TableMesa() {
 
     useEffect(() => {
         fetchData()
-        
+        // eslint-disable-next-line
     }, [])
 
     const error = () => {

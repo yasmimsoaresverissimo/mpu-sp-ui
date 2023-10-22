@@ -1,9 +1,6 @@
 import React from "react"
 import Swal from "sweetalert2"
 
-
-
-
 function MensagemDeAlerta() {
   Swal.fire({
     title: 'Tem certeza que deseja tramitar o documento?',

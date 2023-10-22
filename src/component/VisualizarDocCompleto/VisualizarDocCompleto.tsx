@@ -25,6 +25,6 @@ function VisualizarDocCompleto () {
             </Grid>
         </Grid>
 
-        </Conteudo>
+        </Conteudo> 
 }
 export default VisualizarDocCompleto
