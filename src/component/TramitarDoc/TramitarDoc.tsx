@@ -18,9 +18,9 @@ function TramitarDoc() {
                         <Input label="Cod.Documento" disabled />
                     </Grid>
                     <Grid item xs={4}>
-                        <Input label="Tramitar para:" disabled />
+                        <Input label="Assinatura:" disabled />
                     </Grid>
-                    <Grid item xs={3.5}>
+                    <Grid item xs={3.5 }>
                         <Input disabled />
                     </Grid>
                 </Grid>
@@ -35,10 +35,10 @@ function TramitarDoc() {
 
                 </Grid>
                     <Grid item xs={2}>
-                        <Button value="Cancelar" color="danger" />
+                        <Button value="Tramitar" onClick={MensagemDeAlerta} color="grey" />
                     </Grid>
                     <Grid item xs={2}>
-                        <Button value="Tramitar" onClick={MensagemDeAlerta}
+                        <Button value="Cancelar" color="danger" 
                         />
                     </Grid>
                 </Grid>
