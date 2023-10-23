@@ -72,10 +72,10 @@ function Mesa() {
                 <h2>Mesa virtual <FolderCopyIcon /></h2>
 
                 <div className='left'>
-            <InputGroup onChange={ (e) => setDocumento(e.target.value) } onClick={ () => buscarDocumentoPelaSigla(documento)}placeholder='Buscar Documento.....'></InputGroup>
-        </div>
+                    <InputGroup onChange={ (e) => setDocumento(e.target.value) } onClick={ () => buscarDocumentoPelaSigla(documento)}placeholder='Buscar Documento.....'></InputGroup>
+                </div>
 
-            <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
+                <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
                 
                 <div className="clear"></div>
 

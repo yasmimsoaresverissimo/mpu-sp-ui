@@ -1,9 +1,7 @@
 import React from 'react'
 import { Dialog, DialogTitle, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import Button from '../../../compenentes-compartilhados/Button/Button' 
 import './Modal.css'
 import IconDocumento from "./Files/icon-assinar.png"
-import { DocumentoModel } from '../../Documento/Documento'
 import { Link } from 'react-router-dom'
 
 export interface SimpleDialogProps {

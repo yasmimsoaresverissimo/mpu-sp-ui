@@ -6,7 +6,7 @@
 .Avatar {
     text-align: right;
     cursor: pointer;
-    margin-top: 22px;
+    margin-top: 5px;
 }
 
 .Ambiente {
@@ -16,8 +16,3 @@
 .Logo {
     width: 60px;
 }
-
-.BtnSair {
-    margin-top: 12px;
-}
-

@@ -1,5 +1,4 @@
 import React from "react";
-
 import './SubHeader.css' 
 import { Avatar, Chip, Grid } from "@mui/material";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";

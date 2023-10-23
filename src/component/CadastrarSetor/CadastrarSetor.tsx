@@ -1,17 +1,11 @@
-
 import './CadastrarSetor.scss'
 import React, { useEffect, useState } from 'react';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
-
 import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup';
 import { Link } from 'react-router-dom';
 import Button from '../../compenentes-compartilhados/Button/Button';
 import { listarSetores, buscarSetores,buscarIdentificador,cadastrarSetor  } from './Servico/Servico';
-
-import RadioGroup from '@mui/material/RadioGroup';
-
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import ApartmentIcon from '@mui/icons-material/Apartment';
 import Swal from 'sweetalert2';
 
 export class SetorSearch {
@@ -62,20 +56,11 @@ function CadastrarSetor() {
     return <Conteudo >
     <div className='HeaderUsuario'>
 
+        <h2>Lista de Setor <ApartmentIcon /></h2>
 
 
         <div className='left'>
-            <InputGroup onChange={ (e) => setCadastro(e.target.value) } onClick={ buscar }></InputGroup>
-                <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Escolha qual setor buscar:</FormLabel>
-                <RadioGroup
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    name="row-radio-buttons-group"
-                >
-
-                </RadioGroup>
-            </FormControl>
+            <InputGroup onChange={ (e) => setCadastro(e.target.value) } onClick={ buscar }placeholder='buscar setor...'></InputGroup>
         </div>
 
         <Link className='BtnCriarDocumento AppCriarDocumento right' to="/FormularioSetor"><Button value='Novo Setor' color='create'></Button></Link>
