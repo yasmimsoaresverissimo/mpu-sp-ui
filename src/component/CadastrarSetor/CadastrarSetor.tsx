@@ -25,7 +25,7 @@ function CadastrarSetor() {
 
     const [ cadastrados, setCadastros ] = useState([])
     const [ cadastro, setCadastro ] = useState('')
-    const [ ] = useState('')
+
     
     
     async function fetchData() {
