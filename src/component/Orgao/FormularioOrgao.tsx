@@ -18,7 +18,6 @@ export class Setor {
 function FormularioOrgao() {
 
     const setor = new Setor()
-
     const [ orgao] = useState('');
     const [ nome, setNome ] = useState('');
 

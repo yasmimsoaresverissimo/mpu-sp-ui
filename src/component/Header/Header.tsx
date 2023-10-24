@@ -24,18 +24,18 @@ function Header(props: HeaderProps) {
                     </Grid> 
                     <Grid item xs={3}>
                         <div className="menu">
-                            <a href="#" onClick={() => setShowMenu(false)}>
-                                <MenuIcon sx={{ color: 'white' }} fontSize="large" />
-                            </a>
+                            <a href="#" onClick={() => setShowMenu(false)}><MenuIcon sx={{ color: 'white' }} fontSize="large" /></a>
                         </div> 
                     </Grid> 
                 </Grid>
             </Conteudo>
 
             <ul className="navbar-menu" hidden={showMenu}>
-                <a href="#" onClick={() => setShowMenu(true)}>
-                    <CloseIcon sx={{ color: 'white' }} fontSize="large" />
-                </a>
+
+               <button  className='buttondoheader' onClick={() => setShowMenu(true)}> 
+                    <CloseIcon sx={{ color: 'white' }} fontSize="small" />
+                    </button> 
+
                 <li className="navbar-usuario">Loiane Moskviq</li>
                 <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  
                 <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>

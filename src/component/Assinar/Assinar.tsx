@@ -27,7 +27,7 @@ function Assinar(props: SimpleDialogProps) {
     };
 
     const [openCertificado, setOpenCertificado] = React.useState(false);
-    const [openSenha, setOpenSenha] = React.useState(false);
+    const [,setOpenSenha] = React.useState(false);
 
     const handleCloseCertificado = (value: string) => {
         setOpenCertificado(false);

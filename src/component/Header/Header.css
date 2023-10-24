@@ -61,3 +61,9 @@ a {
 .navbar-menu-item a:hover {
     color: #fff;
 }
+
+.buttondoheader{
+    background: transparent;
+    width: 13%;
+    margin-top: 5%;
+}

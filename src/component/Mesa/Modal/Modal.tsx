@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dialog, DialogTitle, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
+import { Dialog, DialogTitle } from '@mui/material'
 import './Modal.css'
 import IconDocumento from "./Files/icon-assinar.png"
 import { Link } from 'react-router-dom'
@@ -10,12 +10,11 @@ export interface SimpleDialogProps {
     onClose: (value: string) => void;
     tituloHeader?: string,
     titulo?: string
-    desc?:any
     siglaDocumento?:string
 }
   
 function Modal(props: SimpleDialogProps) {
-    const { onClose, selectedValue, open, titulo, tituloHeader, desc } = props;
+    const { onClose, selectedValue, open, titulo, tituloHeader } = props;
   
     const handleClose = () => {
       onClose(selectedValue);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo'
 import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup'
 import './Mesa.css'
