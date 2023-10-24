@@ -4,9 +4,7 @@ import Input from "../../compenentes-compartilhados/Input/Input";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
-
 import './FormularioSetor.css'
-
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { cadastrarSetor } from "./Servico/sertor.service";

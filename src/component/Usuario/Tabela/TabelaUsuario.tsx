@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom';
 import './TabelaUsuario.scss'
 import Button from '../../../compenentes-compartilhados/Button/Button';
 import { buscarUsuarios, listarUsuarios } from '../Servico/usuario.service';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import Swal from 'sweetalert2';
 
 export class UsuarioSearch {
@@ -54,17 +51,7 @@ function TabelaUsuario() {
         <h2>Lista de Usuários <AssignmentIndIcon /></h2>
 
         <div className='left'>
-            <InputGroup onChange={ (e) => setUsuario(e.target.value) } onClick={ buscar }></InputGroup>
-                <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Escolha como deseja buscar:</FormLabel>
-                <RadioGroup
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    name="row-radio-buttons-group"
-                >
-                    
-                </RadioGroup>
-            </FormControl>
+            <InputGroup onChange={ (e) => setUsuario(e.target.value) } onClick={ buscar }placeholder='pesquisar usuário...'></InputGroup>
         </div>
     
         <Link className='BtnCriarDocumento AppCriarDocumento right' to="/formulario-usuario"><Button value='Novo usuário' color='create'></Button></Link>

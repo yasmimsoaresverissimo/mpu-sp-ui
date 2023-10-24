@@ -1,10 +1,11 @@
 import React from "react";
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-
+import Checkbox from '@mui/material/Checkbox';
 import "./TelaDePermissoes.scss";  
+import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 
 function permissoesUsuario() {
-    return (
+    return <Conteudo>
         <>
             <h1>Permissões do sistema <VerifiedUserIcon fontSize="large" /></h1>
             <table className="Tabelastyle">
@@ -20,13 +21,13 @@ function permissoesUsuario() {
                         <td>CAD_USUARIO</td>
                         <td>cadastro de usuário</td>
                         <td>
-                            <input type="checkbox" name="permitir" id="" />
+                        <Checkbox  defaultChecked />
                         </td>
                     </tr>
                 </tbody>
             </table>
         </>
-    );
+    </Conteudo>
 }
 
 export default permissoesUsuario;

@@ -1,11 +1,10 @@
-
 import './CadastrarOrgao.scss'
 import React, { useEffect, useState } from 'react';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
 import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup';
 import { Link } from 'react-router-dom';
 import Button from '../../compenentes-compartilhados/Button/Button';
-import { listarOrgaos, buscarOrgaos,buscarIdentificador,cadastrarOrgao,   } from './Servico/Servico'; 
+import { listarOrgaos, buscarOrgaos } from './Servico/Servico'; 
 import Swal from 'sweetalert2';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
@@ -54,7 +53,7 @@ function CadastrarOrgao() {
         <h2>Lista de Órgãos <AccountBalanceIcon /></h2>
 
         <div className='left'>
-            <InputGroup onChange={ (e) => setCadastro(e.target.value) } onClick={ buscar } placeholder='Pesquisar Órgãos'></InputGroup>
+            <InputGroup onChange={ (e) => setCadastro(e.target.value) } onClick={ buscar } placeholder='pesquisar órgãos...'></InputGroup>
         </div>
 
         <Link className='BtnCriarDocumento AppCriarDocumento right' to="/FormularioOrgao"><Button value='Novo Órgão' color='create'></Button></Link>

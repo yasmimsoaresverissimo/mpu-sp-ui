@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-
 import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Grid } from "@mui/material";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
-import LogoHeader from "./File/logo.png"
 import { Link } from "react-router-dom";
 
 declare interface HeaderProps {
