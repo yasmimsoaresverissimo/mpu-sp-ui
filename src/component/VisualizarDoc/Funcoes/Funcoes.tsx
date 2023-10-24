@@ -6,6 +6,7 @@ import Assinar from '../../Assinar/Assinar';
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import Incluir from '../../Incluir-Consignatario/Incluir';
+import EditarDocumento from '../../EditarDocumento/Editar';
 
 declare interface FuncoesProp {
     codigoDocumento?: string
@@ -60,7 +61,8 @@ function Funcoes(props: FuncoesProp) {
                 <Button onClick={handleAssinarClick}>Assinar</Button>
             </Grid>
             <Grid item xs={1.4}>
-                <Button>Editar</Button>
+            <Link className='BtnCriarDocumento AppCriarDocumento right' to="/editar-documento">
+  <Button>Editar Documento</Button></Link>
             </Grid>
                 <Grid item xs={1.4}> 
                 <Button onClick={Excluir}>Excluir</Button>

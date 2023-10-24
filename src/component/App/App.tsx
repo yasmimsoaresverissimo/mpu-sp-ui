@@ -19,6 +19,7 @@ import PermissoesUsuario from '../TelaDePermissoes/TelaDePermissoes';
 
 import CadastrarOrgao from '../CadastrarOrgao/CadastrarOrgao';
 import FormularioOrgao from '../Orgao/FormularioOrgao';
+import EditarDocumento from '../EditarDocumento/Editar';
 
 function App() { 
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/cadastro-setor" element={<CadastrarSetor />} ></Route>
           <Route path='/permissoes-usuario' element={<PermissoesUsuario />}></Route>
           <Route path="/cadastro-orgao" element={<CadastrarOrgao />} ></Route>
+          <Route path="/editar-documento" element={<EditarDocumento />} ></Route>
 
         </Routes>
     </div>
