@@ -5,6 +5,8 @@ import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import './TramitarDoc.css'
 import { Grid } from "@mui/material";
 import MensagemDeAlerta from "./MensagemDeAlerta/MensagemDeAlerta";
+import GradingIcon from '@mui/icons-material/Grading';
+
 
 function TramitarDoc() {
 
@@ -12,6 +14,7 @@ function TramitarDoc() {
     return <Conteudo>
 
         <div className="caixadotramitardoc">
+        <h1>Tramitar Documento <GradingIcon fontSize="large" /></h1>
             <div className="inputdotramitardoc">
                 <Grid container spacing={5}>
                     <Grid item xs={4}>

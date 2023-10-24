@@ -1,9 +1,7 @@
 import React from 'react'
-import { Dialog, DialogTitle, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
-import Button from '../../compenentes-compartilhados/Button/Button';
+import { Dialog, DialogTitle } from '@mui/material'
 import CircularProgressWithLabel from '../../compenentes-compartilhados/CircularProgressWithLabel/CircularProgressWithLabel';
 import './AssinarComCertificadoDigital.css'
-import IconAssinar from "./Files/icon-assinar.png"
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
 
 

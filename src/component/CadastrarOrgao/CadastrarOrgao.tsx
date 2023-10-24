@@ -19,7 +19,7 @@ function CadastrarOrgao() {
 
     const [ cadastrados, setCadastros ] = useState([])
     const [ cadastro, setCadastro ] = useState('')
-    const [ opcao, setOpcao ] = useState('')
+    const [ ] = useState('')
     
     
     async function fetchData() {
