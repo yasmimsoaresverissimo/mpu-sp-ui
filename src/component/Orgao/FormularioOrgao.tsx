@@ -19,7 +19,7 @@ function FormularioOrgao() {
 
     const setor = new Setor()
 
-    const [ orgao, setOrgao] = useState('');
+    const [ orgao,] = useState('');
     const [ nome, setNome ] = useState('');
 
     function enviarFormulario(e:any) {

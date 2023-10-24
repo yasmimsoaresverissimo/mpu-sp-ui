@@ -10,12 +10,11 @@ export interface SimpleDialogProps {
     onClose: (value: string) => void;
     tituloHeader?: string,
     titulo?: string
-    desc?:any
     siglaDocumento?:string
 }
   
 function Modal(props: SimpleDialogProps) {
-    const { onClose, selectedValue, open, titulo, tituloHeader, desc } = props;
+    const { onClose, selectedValue, open, titulo, tituloHeader } = props;
   
     const handleClose = () => {
       onClose(selectedValue);
