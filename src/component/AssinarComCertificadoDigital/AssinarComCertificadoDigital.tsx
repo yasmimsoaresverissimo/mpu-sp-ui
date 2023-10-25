@@ -1,5 +1,4 @@
 import React from 'react'
-import './AssinarComCertificadoDigital.css'
 import { Dialog, DialogTitle} from '@mui/material'
 import CircularProgressWithLabel from '../../compenentes-compartilhados/CircularProgressWithLabel/CircularProgressWithLabel';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
