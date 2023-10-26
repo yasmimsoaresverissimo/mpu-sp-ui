@@ -17,13 +17,8 @@ function VisualizarDocCompleto () {
 
             <Grid item xs={9}>
                 
-                <object 
-                    width="100%" 
-                    height="400" 
-                    data="http://www.africau.edu/images/default/sample.pdf" 
-                    type="application/pdf" 
-                    
-                />
+            <embed className="PDFView" src="http://www.africau.edu/images/default/sample.pdf" />
+
             </Grid>
         </Grid>
 
