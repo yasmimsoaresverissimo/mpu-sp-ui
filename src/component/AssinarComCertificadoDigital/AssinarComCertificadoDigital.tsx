@@ -1,9 +1,6 @@
 import React from 'react'
-import './AssinarComCertificadoDigital.css'
 import { Dialog, DialogTitle} from '@mui/material'
 import CircularProgressWithLabel from '../../compenentes-compartilhados/CircularProgressWithLabel/CircularProgressWithLabel';
-import './AssinarComCertificadoDigital.css';
-
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo';
 
 export interface SimpleDialogProps {
@@ -23,7 +20,7 @@ function AssinarComCertificadoDigital(props: SimpleDialogProps) {
     return (<Dialog onClose={handleClose} open={open} >
           <Conteudo>
             <DialogTitle>Assinando com certificado digital</DialogTitle>
-            <CircularProgressWithLabel   />
+            <CircularProgressWithLabel  />
           </Conteudo>
         </Dialog>
 

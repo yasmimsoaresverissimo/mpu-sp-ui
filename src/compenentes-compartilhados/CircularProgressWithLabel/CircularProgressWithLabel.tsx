@@ -1,20 +1,31 @@
 import * as React from 'react';
-import CircularProgress, {
-  CircularProgressProps,
-} from '@mui/material/CircularProgress';
+import CircularProgress, {CircularProgressProps,} from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+
 
 function CircularProgressWithLabel(
   props: CircularProgressProps & { value: number },
 ) {
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props} />
+      <CircularProgress  variant="determinate" {...props} 
+       sx={{
+        top: -30,
+        left: 140,
+        bottom: 0,
+        right: 0,
+        position: 'absolute',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      />
+      
       <Box
         sx={{
-          top: 0,
-          left: 0,
+          top: -15,
+          left: 160,
           bottom: 0,
           right: 0,
           position: 'absolute',
@@ -23,19 +34,22 @@ function CircularProgressWithLabel(
           justifyContent: 'center',
         }}
       >
+
         <Typography
           variant="caption"
           component="div"
           color="text.secondary"
-        >{`${Math.round(props.value)}%`}</Typography>
+        >{`${Math.round(props.value)}%`}
+        </Typography>
+     
       </Box>
     </Box>
   );
 }
 
 export default function CircularWithValueLabel() {
-  const [progress, setProgress] = React.useState(10);
-
+  const [progress, setProgress] = React.useState(10) ;
+    
   React.useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
@@ -45,5 +59,7 @@ export default function CircularWithValueLabel() {
     };
   }, []);
 
-  return <CircularProgressWithLabel value={progress} />;
+  return <CircularProgressWithLabel value={progress}  />;
 }
+
+
