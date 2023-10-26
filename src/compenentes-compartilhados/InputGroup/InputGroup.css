@@ -1,12 +1,12 @@
 .flex-container {
     display: flex;
-    width: 100%;
+    flex-wrap: wrap;
 }
 
+
 button {
-    margin: 0 0 0 5px;
+    margin: 0 0 0 8px;
     border: none;
-    float: left;
     height: 35px;
     background-color: #09f;
     color: white;
@@ -15,7 +15,7 @@ button {
 
 input {
     width: 100%;
-    border: 0.10px solid rgb(218, 216, 216);
+    border: 1px solid rgb(218, 216, 216);
     height: 31px;
     color: rgb(80, 80, 80);
     font-size: 15px;
