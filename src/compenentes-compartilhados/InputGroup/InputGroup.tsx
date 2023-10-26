@@ -16,4 +16,4 @@ const InputGroup: React.FC<InputProps> = (props) => {
             </div>
 }
 
-export default InputGroup
+export default InputGroup;

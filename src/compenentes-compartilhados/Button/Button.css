@@ -1,5 +1,6 @@
 .AppButton {
     width: 100%;
+    margin: 0 0 0 0;
     background-color: #09f;
     color: white;
     border-radius: 2px;
