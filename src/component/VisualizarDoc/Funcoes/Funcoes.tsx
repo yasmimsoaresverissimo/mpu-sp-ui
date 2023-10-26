@@ -54,27 +54,32 @@ function Funcoes(props: FuncoesProp) {
     };
 
     return <div className="AppFucoes"> 
-        <Grid container spacing={0.5}>
-            <Grid item xs={1.4}>
+        <Grid container spacing={0.7}>
+            <Grid item xs={1.5}>
                 <Button>Finalizar</Button> 
             </Grid>
-            <Grid item xs={1.4}> 
+            <Grid item xs={1.5}> 
                 <Button onClick={handleAssinarClick}>Assinar</Button>
             </Grid>
-            <Grid item xs={1.4}>
+            <Grid item xs={1.8}>
             <Link className='BtnCriarDocumento AppCriarDocumento right' to="/editar-documento">
   <Button>Editar Documento</Button></Link>
             </Grid>
-                <Grid item xs={1.4}> 
+                <Grid item xs={1.5}> 
                 <Button onClick={Excluir}>Excluir</Button>
             </Grid>
             
             <Grid item xs={2}> 
                 <Button onClick={handleIncluirClick}>Incluir Cossignatário</Button>
             </Grid>
-            <Grid item xs={2}> 
+            <Grid item xs={3}> 
                 <Link to="/visualizar-documento-completo">
                     <Button>Visualizar Documento Completo</Button>
+                </Link>
+            </Grid>
+              <Grid item xs={2}> 
+                <Link to="/Tramitar-documento">
+                    <Button>Tramitar Documento</Button>
                 </Link>
             </Grid>
          
