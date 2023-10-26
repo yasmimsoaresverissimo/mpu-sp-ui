@@ -40,11 +40,8 @@ function Header(props: HeaderProps) {
                 <li className="navbar-menu-item"><Link to="/mesa-virtual">Home</Link></li>  
                 <li className="navbar-menu-item"><Link to="/documento">Criar documento</Link></li>
                 <li className="navbar-menu-item"><Link to="/listar-usuario">Cadastro usuário</Link></li>
-                <li className="navbar-menu-item"><Link to="/Tramitar-documento">Tramitar documento</Link></li>
                 <li className="navbar-menu-item"><Link to="/cadastro-setor">Cadastro Setor</Link></li>
-
                 <li className="navbar-menu-item"><Link to={"/permissoes-usuario"}>Permissoes para usuário</Link></li>
-
                 <li className="navbar-menu-item"><Link to="/cadastro-orgao">Cadastro Órgão</Link></li>
 
             </ul>

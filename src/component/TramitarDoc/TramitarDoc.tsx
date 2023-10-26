@@ -6,6 +6,7 @@ import './TramitarDoc.css'
 import { Grid } from "@mui/material";
 import MensagemDeAlerta from "./MensagemDeAlerta/MensagemDeAlerta";
 import GradingIcon from '@mui/icons-material/Grading';
+import { Link } from "react-router-dom";
 
 
 function TramitarDoc() {
@@ -41,7 +42,7 @@ function TramitarDoc() {
                        <Button color="primary" onClick={MensagemDeAlerta} >Tramitar</Button>
                     </Grid>
                     <Grid item xs={2}>
-                       <Button value="Cancelar" color="danger"></Button>
+                     <Link to="/visualizar-documento/MEM-5546"  ><Button value="Cancelar" color="danger"  ></Button></Link>
                     </Grid>
                 </Grid>
                 </div>
