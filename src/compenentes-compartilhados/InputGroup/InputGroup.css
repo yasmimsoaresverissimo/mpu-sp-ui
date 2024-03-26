@@ -1,11 +1,10 @@
 .flex-container {
     display: flex;
-    flex-wrap: wrap;
 }
 
 
 button {
-    margin: 0 0 0 8px;
+    margin: 0 0 0 6px;
     border: none;
     height: 35px;
     background-color: #09f;
@@ -14,7 +13,7 @@ button {
 }
 
 input {
-    width: 100%;
+    width:100%;
     border: 1px solid rgb(218, 216, 216);
     height: 31px;
     color: rgb(80, 80, 80);
@@ -25,3 +24,4 @@ input:focus {
     border-color: #c1c1c1;
     outline: none;
 }
+

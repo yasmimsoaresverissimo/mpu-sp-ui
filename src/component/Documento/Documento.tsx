@@ -21,10 +21,10 @@ function Documento() {
         
         <Form titulo={"Criar documento"}>
             <Grid container spacing={2}>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <Input label="Modelo"/>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                     <Input label="Meus textos padrões"/>
                 </Grid>
 
@@ -38,13 +38,13 @@ function Documento() {
             <textarea className="TextArea"></textarea>
 
             <Grid container spacing={1}>
-                <Grid item xs={2}>
+                <Grid item xs={4} sm={2}>
                     <Button value="Criar" color="create" />
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={4} sm={2}>
                     <Button>Visualizar</Button>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={4} sm={2}>
                 <Link className='BtnCriarDocumento AppCriarDocumento' to="/mesa-virtual"><Button value="Cancelar" color="grey" /></Link>
                     
                 </Grid>

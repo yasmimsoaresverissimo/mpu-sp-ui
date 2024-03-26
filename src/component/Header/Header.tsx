@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import { Grid } from "@mui/material";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import { Link } from "react-router-dom";
 
@@ -18,16 +17,14 @@ function Header(props: HeaderProps) {
     
     return <div className="AppHeader" hidden={ props.hidden }>
             <Conteudo>
-                <Grid container spacing={12}>
-                    <Grid item xs={9}>
+                <div className='Container'>
+                    <div className='TextoHeader'>
                         <Link to="/mesa-virtual">MPU SP</Link>
-                    </Grid> 
-                    <Grid item xs={3}>
-                        <div className="menu">
-                            <a href="#" onClick={() => setShowMenu(false)}><MenuIcon sx={{ color: 'white' }} fontSize="large" /></a>
-                        </div> 
-                    </Grid> 
-                </Grid>
+                    </div>
+                    <div className="menu">
+                        <a href="#" onClick={() => setShowMenu(false)}><MenuIcon sx={{ color: 'white' }} fontSize="large" /></a>
+                    </div> 
+                </div>
             </Conteudo>
 
             <ul className="navbar-menu" hidden={showMenu}>

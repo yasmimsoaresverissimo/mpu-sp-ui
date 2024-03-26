@@ -14,7 +14,7 @@ function VisualizarDoc () {
 
     var codigoDocumento = codigo
     var lista = ['Steve Jobs', 'Donal Trump'] 
-    var descricao = "Memorando detransssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+    var descricao = "Memorando detrasssssssssss"
     var interessado = 'Interessado fssnfsfnsf'
     var assunto = 'Assunto csfcsvvvdvdvkndvkdnvdnvvndvnkn'
     var userName = 'Marcus'
@@ -26,7 +26,7 @@ function VisualizarDoc () {
 
         <Grid container spacing={2.0}>
        
-            <Grid item xs={9}>
+            <Grid item xs={7}sm={9}>
                 <div className="VisuDoc" >
 
                     <div className="HeaderDocumento">
@@ -37,9 +37,9 @@ function VisualizarDoc () {
                     </div>
                     
                     <div className="body">
-                        <p><b>Número de Referência:</b>{ descricao }</p>
-                        <p><b>Interessado:</b>{ interessado }</p>
-                        <p><b>Assunto:</b>{ assunto }</p>
+                        <p><b>Número de Referência: </b>{ descricao }</p>
+                        <p><b>Interessado: </b>{ interessado }</p>
+                        <p><b>Assunto: </b>{ assunto }</p>
                     </div>
 
                     <div className="footer">
@@ -50,7 +50,7 @@ function VisualizarDoc () {
                 
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item xs={5}sm={3}>
                 <Box array={ lista } titulo="Cossignatários"/>
             </Grid>
                

@@ -61,7 +61,7 @@ function FormularioOrgao() {
             </Grid>
             <div className="btnComando">
                 <Grid container spacing={2}>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}sm={2}>
                         <div className="btnCadastrar">
                             <Button>
                                 Cadastrar  
@@ -69,7 +69,7 @@ function FormularioOrgao() {
                         </div>
                     </Grid>
 
-                    <Grid item xs={3}>
+                    <Grid item xs={4}sm={2}>
                         <div className="btnCancelar">
                             <Link className='BtnCriarDocumento AppCriarDocumento' to="/cadastro-orgao"><Button value="Cancelar" color="grey" /></Link>
                         </div>                    

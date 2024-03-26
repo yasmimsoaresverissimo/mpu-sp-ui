@@ -60,7 +60,7 @@ function FormularioUsuario() {
             if (err instanceof Error) 
               Swal.fire('Oops!', err.message, 'error')
         }
-
+ 
     }
 
     return <Conteudo >
@@ -68,21 +68,21 @@ function FormularioUsuario() {
         <Form 
             titulo={"Cadastro de Usuário"}
             onSubmit={ enviarFormulario } 
-        >
-        <Input 
-            label="Nome Completo" 
+        >   
+            <Grid item xs={12}>
+            <Input label="Nome Completo" 
             onChange={ (e) => setNome(e.target.value) }
-            value={ nome }
-        />
+            value={ nome }/>
+            </Grid>
             <Grid container spacing={2}>
-                <Grid item xs={4}>
+                <Grid item xs={6} sm={4}>
                     <Input 
                         label="CPF" 
                         onChange={ (e) => setCpf(e.target.value) }
                         value={ cpf }
                     />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6} sm={4}>
                     <Input 
                         label="RG"
                         onChange={ (e) => setRg(e.target.value) }
@@ -90,21 +90,21 @@ function FormularioUsuario() {
                     />
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item xs={6}sm={4}>
                     <Input 
                         label="Setor" 
                         onChange={ (e) => setSetor(e.target.value) }
                         value={ setor }
                     />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6} sm={5}>
                     <Input 
-                        label="Dados de Nascimento"
+                        label="Data Nascimento"
                         onChange={ (e) => setNascimento(e.target.value) }
                         value={ nascimento }
                     />
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={12}sm={7}>
                     <Input 
                         label="Endereço"
                         onChange={ (e) => setEndereco(e.target.value) }
@@ -117,19 +117,17 @@ function FormularioUsuario() {
                 onChange={ (e) => setEmail(e.target.value) }
                 value={ email }
             />
-      
-            <div className="AppButtons">
+      <br></br>
                 <Grid container spacing={1}>
-                    <Grid item xs={3}>
+                    <Grid item xs={6}sm={3}>
                         <Button>
                             Cadastrar  
                         </Button> 
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={6}sm={3}>
                         <Link className='BtnCriarDocumento AppCriarDocumento' to="/listar-usuario"><Button value="Cancelar" color="grey" /></Link>
                     </Grid>
                 </Grid>
-            </div>
 
         </Form>
     </Conteudo>
