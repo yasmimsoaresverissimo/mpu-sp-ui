@@ -3,6 +3,7 @@ import './Button.css'
 
 declare interface ButtonProps {
     content?: string
+    className?:string
     onClick?: () => void
     value?: string
     appnedIcon?: any

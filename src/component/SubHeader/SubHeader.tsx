@@ -13,22 +13,19 @@ declare interface SubHeaderProps {
 function SubHeader(props: SubHeaderProps) {
     return <div className="AppSubHeader" hidden={ props.hidden }>
             <Conteudo>
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <div className="Ambiente">
-                            <p>Ambiente de <b>desenvolvimento</b></p>
-                        </div>
-                    </Grid> 
-                    <Grid item xs={5}>
-                        <div className="Avatar">
-                            <Chip avatar={<Avatar sx={{ background: 'white' }}>G</Avatar>} label="Yasmin Soares" />
-                        </div> 
-                        </Grid>
-                        <Grid item xs={1}> 
-                            <Button value="Sair" color="danger" />
-                        </Grid>
+                <div className="MenuSubHeader">
+                    <div className="Ambiente">
+                        <p>Ambiente de <b>desenvolvimento</b></p>
+                    </div>
+                        
+                    <div className="Container2">
+                        <Chip className="Avatar" avatar={<Avatar sx={{ background: 'white' }}>G</Avatar>} label="Yasmin Soares" />
+                        <Button value="Sair" color="danger" className="BotaoSair" />
+                    </div> 
+            
+                </div>
                     
-                </Grid>
+             
             </Conteudo>
         </div>
 }

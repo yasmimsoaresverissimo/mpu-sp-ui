@@ -60,21 +60,21 @@ function FormularioSetor() {
             onSubmit={ enviarFormulario } 
         >
             <Grid container spacing={2}>
-                <Grid item xs={4}>
-                    <Input 
-                        label="Órgão" 
-                        onChange={ (e) => setOrgao(e.target.value) }
-                        value={ orgao }
-                    />
-                    </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12}sm={4}>
                     <Input 
                         label="Nome" 
                         onChange={ (e) => setNome(e.target.value) }
                         value={ nome }
                     />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}sm={4}>
+                    <Input 
+                        label="Órgão" 
+                        onChange={ (e) => setOrgao(e.target.value) }
+                        value={ orgao }
+                    /> 
+                    </Grid>
+                <Grid item xs={6}sm={4}>
                     <Input 
                         label="Sigla"
                         onChange={ (e) => setSigla(e.target.value) }
@@ -82,33 +82,32 @@ function FormularioSetor() {
                     />
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item xs={6}sm={4}>
                     <Input 
                         label="Unidade Pai" 
                         onChange={ (e) => setUnidadePai(e.target.value) }
                         value={ unidadepai }
                     />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6}sm={4}>
                     <Input 
                         label="Localidade"
                         onChange={ (e) => setLocalidade(e.target.value) }
                         value={ localidade}
                     />
                 </Grid>
-              </Grid>
-            <div className="AppButtons">
+            </Grid>
+                <br></br>
                 <Grid container spacing={1}>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}sm={3}>
                         <Button>
                             Cadastrar  
                         </Button> 
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}sm={3}>
                         <Link className='BtnCriarDocumento AppCriarDocumento' to="/listar-usuario"><Button value="Cancelar" color="grey" /></Link>
                     </Grid>
                 </Grid>
-            </div>
 
         </Form>
     </Conteudo>

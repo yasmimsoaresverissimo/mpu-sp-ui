@@ -27,5 +27,12 @@
     background-color: rgb(143, 141, 141);
 }
 
+@media(max-width:410px){
+    .left{
+        width: 170px;
+        justify-content: space-between;
+    }
+}
+
 
 

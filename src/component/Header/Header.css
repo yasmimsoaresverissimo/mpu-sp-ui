@@ -3,11 +3,11 @@
     padding: 5px;
     background-color: var(--cor-padrao); 
 }
-
-.menu {
-    text-align: right;
+.Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
 .BtnMenu {
     background-color: red;
     width: 35px;
@@ -66,4 +66,12 @@ a {
     background: transparent;
     width: 13%;
     margin-top: 5%;
+}
+@media(max-width:1043px){
+    .TextoHeader{
+        margin-left: 20px;
+    }
+    .menu{
+        margin-right: 20px;
+    }
 }

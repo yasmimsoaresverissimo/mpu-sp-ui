@@ -11,7 +11,7 @@ function VisualizarDocCompleto () {
     return <Conteudo> 
         <Grid container spacing={2.0}>
 
-            <Grid item xs={3}>
+            <Grid item xs={5}sm={3}>
                 <Box titulo="Titulo" array={listaDeDocumentos}/>
             </Grid>
 
