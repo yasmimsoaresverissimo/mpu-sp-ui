@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import './TableMesa.scss'
 import { Link } from "react-router-dom";
-import { listarDocumentos } from "../Servico/documento.servico";
 import Swal from "sweetalert2";
 
 function TableMesa() {
@@ -24,7 +23,6 @@ function TableMesa() {
         }
     ]
 
-    const [documentos, setDocumentos] = useState([])
 
     async function fetchData() {
         try {

@@ -62,9 +62,6 @@ function Mesa() {
         setOpen(false);
     };
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
 
     return <Conteudo >
         

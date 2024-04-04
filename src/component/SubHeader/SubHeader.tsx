@@ -1,6 +1,6 @@
 import React from "react";
 import './SubHeader.css' 
-import { Avatar, Chip, Grid } from "@mui/material";
+import { Avatar, Chip } from "@mui/material";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import Button from "../../compenentes-compartilhados/Button/Button";
 

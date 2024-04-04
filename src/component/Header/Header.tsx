@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 declare interface HeaderProps {
 
@@ -22,7 +23,7 @@ function Header(props: HeaderProps) {
                         <Link to="/mesa-virtual">MPU SP</Link>
                     </div>
                     <div className="menu">
-                        <a href="#" onClick={() => setShowMenu(false)}><MenuIcon sx={{ color: 'white' }} fontSize="large" /></a>
+                        <Button href="#" onClick={() => setShowMenu(false)}><MenuIcon sx={{ color: 'white' }} fontSize="large" /></Button>
                     </div> 
                 </div>
             </Conteudo>
