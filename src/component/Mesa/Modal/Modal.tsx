@@ -26,7 +26,7 @@ function Modal(props: SimpleDialogProps) {
         <div className='AppModal'>
         
         <div className='AppIcon'>
-            <img src={ IconDocumento } />
+            <img src={ IconDocumento } alt='Ícone De Documento'/>
         </div>
         
         <h2>{ titulo }</h2>

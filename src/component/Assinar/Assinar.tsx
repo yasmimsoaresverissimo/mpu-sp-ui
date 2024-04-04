@@ -53,7 +53,7 @@ function Assinar(props: SimpleDialogProps) {
         <div className='AppModal'>
         
         <div className='AppIcon'>
-            <img src={ IconAssinar } />
+            <img src={ IconAssinar } alt='Ícone De Assinar'/>
         </div>
         
         <h2>{ titulo }</h2>
