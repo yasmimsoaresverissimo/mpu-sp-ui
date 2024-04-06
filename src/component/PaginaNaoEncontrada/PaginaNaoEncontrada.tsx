@@ -1,5 +1,6 @@
 import React from 'react'
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import './PaginaNaoEncontrada.css'
 
     function PaginaNaoEncontrada() {
 
