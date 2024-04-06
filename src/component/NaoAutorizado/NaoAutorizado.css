@@ -1,5 +1,8 @@
-.AppCenterContext, img{
-    width: 200px;
+.AppCenterContext {
+    width: 100%;
     text-align: center;
     }
-    
+
+    img {
+        width: 150px;
+    }

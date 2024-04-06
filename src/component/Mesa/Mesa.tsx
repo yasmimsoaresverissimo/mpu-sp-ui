@@ -17,7 +17,7 @@ function Mesa() {
     useEffect(() => {
         const token = cookies.get('Token');
         if (!token) {
-            navigate('/404');
+            navigate('/nao-autorizado');
         }
     }, [navigate]);
     const [documento, setDocumento] = useState("")
