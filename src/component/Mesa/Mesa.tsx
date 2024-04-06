@@ -1,18 +1,26 @@
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import Conteudo from '../../compenentes-compartilhados/Conteudo/Conteudo'
 import InputGroup from '../../compenentes-compartilhados/InputGroup/InputGroup'
 import './Mesa.css'
 import TableMesa from './Table/TableMesa';
 import Button from '../../compenentes-compartilhados/Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FolderCopyIcon from '@mui/icons-material/FolderCopy';
 import { buscarDocumento } from './Servico/documento.servico';
 import Modal from './Modal/Modal';
 import Swal from 'sweetalert2';
+import Cookies from 'universal-cookie'; 
+
 function Mesa() {
-
+    const cookies = new Cookies();
+    const navigate = useNavigate();
+    useEffect(() => {
+        const token = cookies.get('Token');
+        if (!token) {
+            navigate('/404');
+        }
+    }, [navigate]);
     const [documento, setDocumento] = useState("")
-
     const [showAccordion1, setAccordion1] = useState(true)
     const [showAccordion2, setAccordion2] = useState(false)
     const [showAccordion3, setAccordion3] = useState(false)
