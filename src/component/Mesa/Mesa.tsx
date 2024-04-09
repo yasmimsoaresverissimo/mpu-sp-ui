@@ -20,6 +20,7 @@ function Mesa() {
             navigate('/nao-autorizado');
         }
     }, [navigate]);
+    
     const [documento, setDocumento] = useState("")
     const [showAccordion1, setAccordion1] = useState(true)
     const [showAccordion2, setAccordion2] = useState(false)
@@ -48,7 +49,6 @@ function Mesa() {
             setAccordion3(false)
             setAccordion4(true)
         }
-        
     }
 
     //Buscar documento
@@ -65,59 +65,43 @@ function Mesa() {
 
     //Modal
     const [open, setOpen] = React.useState(false);
-
     const handleClose = (value: string) => {
         setOpen(false);
     };
 
-
     return <Conteudo >
-        
             <div className='HeaderMesa'>
-                <h2>Mesa virtual <FolderCopyIcon /></h2>
-
+                <h2>Mesa virtual <FolderCopyIcon /> </h2>
                 <div className='left'>
                     <InputGroup onChange={ (e) => setDocumento(e.target.value) } onClick={ () => buscarDocumentoPelaSigla(documento)}placeholder='Buscar Documento'></InputGroup>
                 </div>
-
                 <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
-                
                 <div className="clear"></div>
-
             </div>
-
             <div className="accordion-heading" onClick={() => handleClick(1) } >Documentos criados</div>
-           
             {showAccordion1 && (
                 <div className="accordion-content" >
                     <TableMesa></TableMesa>
                 </div>
             )}
-
             <div className="accordion-heading" onClick={() =>  handleClick(2) } >Documentos recebidos</div>
-            
             {showAccordion2 && (
                 <div className="accordion-content" >
                     <TableMesa></TableMesa>
                 </div>
             )}
-
             <div className="accordion-heading" onClick={() => handleClick(3)} >Documentos tramitados</div>
-            
             {showAccordion3 && (
                 <div className="accordion-content" >
                     <TableMesa></TableMesa>
                 </div>
             )}
-
             <div className="accordion-heading" onClick={() => handleClick(4)} >Documentos assinados</div>
-            
             {showAccordion4 && (
                 <div className="accordion-content" >
                     <TableMesa></TableMesa>
                 </div>
             )}
-
         <Modal
             selectedValue={'selectedValue'}
             open={open}
@@ -126,10 +110,7 @@ function Mesa() {
             tituloHeader='Visualizar documento'
             siglaDocumento={documento}
         />
-
         </Conteudo>
-        
-    
 }
 
 export default Mesa

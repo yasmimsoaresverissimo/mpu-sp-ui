@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header hidden={ false }></Header>
-      <SubHeader hidden={ false } />
+      <Header></Header>
+      <SubHeader/>
       <App />
     </BrowserRouter>
   </React.StrictMode>

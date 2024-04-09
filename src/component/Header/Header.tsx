@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap';
+import Cookies from 'universal-cookie';
 
-declare interface HeaderProps {
-
-    hidden?: boolean
-
-}
-
-function Header(props: HeaderProps) {
-
+function Header() {
+    const cookies = new Cookies();
     const [showMenu, setShowMenu] =  useState(true);
     
-    return <div className="AppHeader" hidden={ props.hidden }>
+    useEffect(() => {
+        const token = cookies.get('Token');
+        if (!token) {
+            return 
+        }
+    }, []);
+
+    return <div className="AppHeader" hidden={ !cookies.get('Token') ? true : false }>
             <Conteudo>
                 <div className='Container'>
                     <div className='TextoHeader'>

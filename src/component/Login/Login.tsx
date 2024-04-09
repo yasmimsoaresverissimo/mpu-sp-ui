@@ -23,8 +23,8 @@ export class LoginModel {
 }
 
 function Login(props: LoginProps) {
+    
     const navigate = useNavigate();
-    const [ url, setUrl] = useState("")
     const [ matricula, setMatricula] = useState('');
     const [ password, setPassword] = useState('');
     const login = new LoginModel()
@@ -37,12 +37,12 @@ function Login(props: LoginProps) {
             const object_token = logar(login)
             object_token.then(data => {
                 const token = data.token;
-                console.log(token)
                 const cookies = new Cookies(null, { path: '/'});
-                cookies.set('Token', "Bearer " +token);
+                cookies.set('Token', token);
                 navigate('/');
             }).catch(error =>{
                 console.error('Erro ao fazer login', error);
+                Swal.fire("Oops!", error.message, "error")
             });
         } catch(err) {
             if (err instanceof Error)
@@ -67,7 +67,7 @@ function Login(props: LoginProps) {
                     </Grid>
                     <Grid item xs={5}>
                         <div className="buttons">
-                            <Button >{ props.txtBotao ? props.txtBotao : "Logar" }</Button>
+                            <Button>{ "Logar" }</Button>
                         </div>
                     </Grid>
                     </Grid>
