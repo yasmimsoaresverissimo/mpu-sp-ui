@@ -3,11 +3,12 @@ import './Header.css'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import Cookies from 'universal-cookie';
 
 function Header() {
+    const location = useLocation();
     const cookies = new Cookies();
     const [showMenu, setShowMenu] =  useState(true);
     
@@ -18,7 +19,11 @@ function Header() {
         }
     }, []);
 
-    return <div className="AppHeader" hidden={ !cookies.get('Token') ? true : false }>
+    function exibindoNavbar() {
+        return location.pathname === '/login';
+    }    
+
+    return <div className="AppHeader" hidden={ exibindoNavbar() }>
             <Conteudo>
                 <div className='Container'>
                     <div className='TextoHeader'>
