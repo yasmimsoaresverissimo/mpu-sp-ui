@@ -25,10 +25,10 @@ function SubHeader() {
         cookies.remove('Token', { path: '/' })
         navigate('/login');
     }
-
+ 
     function exibindoNavbar() {
         console.log('....exibindoNavbar')
-        return location.pathname === '/login';
+        return location.pathname === '/login' || location.pathname === '/nao-autorizado';
     }
 
     return <div className="AppSubHeader" hidden={ exibindoNavbar() }>

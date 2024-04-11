@@ -20,7 +20,7 @@ function Header() {
     }, []);
 
     function exibindoNavbar() {
-        return location.pathname === '/login';
+        return location.pathname === '/login' || location.pathname === '/nao-autorizado';
     }    
 
     return <div className="AppHeader" hidden={ exibindoNavbar() }>
