@@ -13,17 +13,13 @@ function SubHeader() {
     const cookies = new Cookies();
     const navigate = useNavigate();
     useEffect(() => {
-        const timerId = setTimeout(() => {
-            setSeconds(prevSeconds => prevSeconds + 1);
-        }, 10000); 
         const token = cookies.get('Token');
         if (!token) {
             return 
         }
         const object = JSON.parse(atob(token.split('.')[1]))
         setNameUser(object['nome']);
-        return () => clearTimeout(timerId);
-    }, [setNameUser]);
+    }, [cookies]);
 
     function logout() {
         cookies.remove('Token', { path: '/' })
@@ -31,6 +27,7 @@ function SubHeader() {
     }
 
     function exibindoNavbar() {
+        console.log('....exibindoNavbar')
         return location.pathname === '/login';
     }
 
