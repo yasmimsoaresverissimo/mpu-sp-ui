@@ -7,6 +7,7 @@ import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
 import { Link } from "react-router-dom";
 import User from "../../compenentes-compartilhados/User/User";
+import { useParams } from 'react-router-dom';
 
 export class DocumentoModel {
     sigla?: string
@@ -17,9 +18,11 @@ export class DocumentoModel {
 
 function Documento() {
 
+    const { sigla } = useParams();
+
     return <Conteudo >
         
-        <Form titulo={"Criar documento"}>
+        <Form titulo={!sigla ? 'Criar documento' : 'Editar documento'}>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                     <Input label="Modelo"/>

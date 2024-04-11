@@ -1,25 +1,16 @@
-import http from "../../../utils/http"; 
-import { SetorSearch} from "../CadastrarSetor";
+import http from "../../../utils/http-department"; 
+
+const baseURL = '/v1/department'
 
 export const listarSetores = () => {
     return http
-        .get('/Cadastro-Setor/listar')
+        .get(`${baseURL}/listar`)
         .then(response => response.data); 
 }
 
 export const buscarSetores = (nome?:string) => {
     console.log(nome)
     return http
-        .get(`//buscar?setor=${nome}`)
+        .get(`${baseURL}/buscar?nome=${nome}`)
         .then(response => response.data); 
 } 
-
-export const buscarIdentificador = (id:string) => {
-    return http
-        .get(`/Cadastro-Setor/buscar?id=${id}`)
-        .then(response => response.data); 
-}   
-
-export const cadastrarSetor = (Setor: SetorSearch) => {
-    http.post('/Cadastro-Setor/cadastro', Setor)
-}

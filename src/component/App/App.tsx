@@ -28,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Mesa />} ></Route>
           <Route path="/mesa-virtual" element={<Mesa />} ></Route>
+          <Route path="/documento/:sigla" element={<Documento />} ></Route> 
           <Route path="/documento" element={<Documento />} ></Route> 
           <Route path="/formulario-usuario" element={<FormularioUsuario />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
@@ -37,6 +38,7 @@ function App() {
           <Route path="/visualizar-documento/:codigo" element={<VisualizarDoc />} ></Route>
           <Route path="/listar-usuario" element={<UsuarioHome />} ></Route>
           <Route path="/FormularioSetor" element={<FormularioSetor />} ></Route>
+          <Route path="/FormularioSetor/:id" element={<FormularioSetor />} ></Route>
           <Route path="/FormularioOrgao" element={<FormularioOrgao />} ></Route>
           <Route path="*" element={<PaginaNaoEncontrada/>} ></Route>
           <Route path="/Tramitar-documento" element={<TramitarDoc />} ></Route>

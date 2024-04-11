@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "../../compenentes-compartilhados/Form/Form";
 import Input from "../../compenentes-compartilhados/Input/Input";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
@@ -6,22 +6,20 @@ import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
 import './FormularioSetor.css'
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
-import { cadastrarSetor } from "./Servico/sertor.service";
+import { Link, useParams } from "react-router-dom";
+import { cadastrarSetor, editarSetor, buscarSetorPorId } from "./Servico/sertor.service";
 
-export class Setor {
+export class Department {
     orgao?: string
     nome?: string
     sigla?: string 
-    unidadepai?: string
+    unidadePai?: string
     localidade?: string
-
 }
 
 function FormularioSetor() {
-
-    const setor = new Setor()
-
+    const { id } = useParams();
+    const setor = new Department()
     const [ orgao, setOrgao] = useState('');
     const [ nome, setNome ] = useState('');
     const [ sigla, setSigla ] = useState('');
@@ -39,12 +37,16 @@ function FormularioSetor() {
         setor.orgao = orgao
         setor.nome = nome
         setor.sigla = sigla
-        setor.unidadepai = unidadepai
+        setor.unidadePai = unidadepai
         setor.localidade = localidade
       
-
         try {
-           cadastrarSetor(setor)
+            if(id == null) {
+                cadastrarSetor(setor)
+            } else {
+                editarSetor(setor, id)
+            }
+
             Swal.fire('Setor', `O setor ${ orgao } foi cadastrado com sucesso`, 'success')
         } catch(err) {
             if (err instanceof Error) 
@@ -53,10 +55,26 @@ function FormularioSetor() {
 
     }
 
+    useEffect(() => {
+      if(id) {
+        const _setor =  buscarSetorPorId(id)
+        _setor.then(data => {
+            setNome(data.nome)
+            setLocalidade(data.localidade)
+            setOrgao(data.orgao)
+            setUnidadePai(data.unidadePai)
+            setSigla(data.sigla)
+        }).catch(error =>{
+            console.error('Erro ao fazer login', error);
+            Swal.fire("Oops!", error.message, "error")
+        });
+      }  
+    },[]);
+
     return <Conteudo >
         
         <Form 
-            titulo={"Cadastro de Setor"}
+            titulo={!id ? "Cadastro de Setor" : "Edição de Setor"}
             onSubmit={ enviarFormulario } 
         >
             <Grid container spacing={2}>
@@ -105,7 +123,7 @@ function FormularioSetor() {
                         </Button> 
                     </Grid>
                     <Grid item xs={4}sm={3}>
-                        <Link className='BtnCriarDocumento AppCriarDocumento' to="/listar-usuario"><Button value="Cancelar" color="grey" /></Link>
+                        <Link className='BtnCriarDocumento AppCriarDocumento' to="/cadastro-setor"><Button value="Voltar" color="grey" /></Link>
                     </Grid>
                 </Grid>
 
