@@ -18,7 +18,7 @@ function CircularProgressWithLabel(
         position: 'absolute',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
       }}
       />
       

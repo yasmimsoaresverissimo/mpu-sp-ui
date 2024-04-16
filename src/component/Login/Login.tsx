@@ -8,8 +8,6 @@ import { logar } from './Servico/login.servico';
 import Swal from 'sweetalert2';
 import { Grid } from '@mui/material';
 import Cookies from 'universal-cookie';
-import { error } from 'console';
-import path from 'path';
 import { useNavigate } from 'react-router-dom';
 
 declare interface LoginProps {
