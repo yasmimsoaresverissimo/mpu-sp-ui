@@ -93,9 +93,12 @@ function FormularioUsuario() {
             onSubmit={ enviarFormulario } 
         >   
             <Grid item xs={12}>
-            <Input label="Nome Completo" 
-            onChange={ (e) => setNome(e.target.value) }
-            value={ nome }/>
+                    <Input label="Nome Completo" 
+                       onChange={ (e) => setNome(e.target.value) }
+                       value={ nome }
+                       validation={(value) => value.length > 0}
+                       errorMessage="O nome completo é obrigatório!"
+                    />
             </Grid>
             <Grid container spacing={2}>
                 <Grid item xs={6} sm={4}>
@@ -103,6 +106,8 @@ function FormularioUsuario() {
                         label="CPF" 
                         onChange={ (e) => setCpf(e.target.value) }
                         value={ cpf }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O cpf é obrigatório!"
                     />
                 </Grid>
                 <Grid item xs={6} sm={4}>
@@ -110,6 +115,8 @@ function FormularioUsuario() {
                         label="RG"
                         onChange={ (e) => setRg(e.target.value) }
                         value={ rg }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O rg é obrigatório!"
                     />
                 </Grid>
 
@@ -118,6 +125,8 @@ function FormularioUsuario() {
                         label="Telefone" 
                         onChange={ (e) => setTelefone(e.target.value) }
                         value={ telefone }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O telefone é obrigatório!"
                     />
                 </Grid>
                 <Grid item xs={6} sm={4}>
@@ -125,6 +134,8 @@ function FormularioUsuario() {
                         label="Data Nascimento"
                         onChange={ (e) => setNascimento(e.target.value) }
                         value={ nascimento }
+                        validation={(value) => value.length > 0}
+                       errorMessage="A data de nascimento é obrigatório!"
                     />
                 </Grid>
                 <Grid item xs={6}sm={4}>
@@ -132,6 +143,8 @@ function FormularioUsuario() {
                         label="Endereço"
                         onChange={ (e) => setEndereco(e.target.value) }
                         value={ endereco }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O endereço é obrigatório!"
                     />
                 </Grid>
                 <Grid item xs={6}sm={4}>
@@ -139,15 +152,19 @@ function FormularioUsuario() {
                         label="Departamento"
                         onChange={ (e) => setDepartmentId(e.target.value) }
                         value={ departmentId }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O departamento é obrigatório!"
                     />
                 </Grid>
-            </Grid>
-            <Input 
-                label="E-mail"
-                onChange={ (e) => setEmail(e.target.value) }
-                value={ email }
-            />
-      <br></br>
+                </Grid>
+                    <Input 
+                        label="E-mail"
+                        onChange={ (e) => setEmail(e.target.value) }
+                        value={ email }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O e-mail é obrigatório!"
+                    />
+                 <br></br>
                 <Grid container spacing={1}>
                     <Grid item xs={6}sm={3}>
                         <Button>
