@@ -10,11 +10,10 @@ import UpdateIcon from '@mui/icons-material/Update';
 import HttpsOutlinedIcon from '@mui/icons-material/HttpsOutlined';
 import { listarSetores, ativarDesativarSetor} from './Servico/Servico';
 import { access } from 'fs';
-import { Box, CircularProgress, DialogTitle, LinearProgress, Pagination } from '@mui/material';
-import Modal from '@mui/material/Modal';
-import CircularProgressWithLabel from '../../compenentes-compartilhados/CircularProgressWithLabel/CircularProgressWithLabel';
-
+import { DialogTitle, LinearProgress, Pagination } from '@mui/material';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 import Dialog from '@mui/material/Dialog';
+import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -128,19 +127,17 @@ function CadastrarSetor() {
                                     <td>{ listValue.sigla }</td>
                                     <td>{ listValue.orgao }</td> 
                                     <td>
-                                        <div style={{ display: 'flex' }}>
+                                        <div style={{ display: 'flex', maxWidth: '40px' }}>
                                             <Link className='BtnEditar' to={`/FormularioSetor/${listValue.id}`}>
-                                                <Button icon={<UpdateIcon></UpdateIcon>}/> 
+                                                <Button icon={<BorderColorRoundedIcon/>}/> 
                                             </Link>
                                             {
                                                 listValue.active ? 
-                                                    <Button onClick={() => ativacaoSetor(listValue.id, !listValue.active)} 
-                                                        color='create' 
-                                                        icon={<HttpsOutlinedIcon/>}/>
+                                                    <a onClick={() => ativacaoSetor(listValue.id, !listValue.active)} 
+                                                        style={{'cursor': 'pointer', 'marginLeft': '10px'}}><HttpsOutlinedIcon color={'error'}/></a>
                                                 :
-                                                    <Button onClick={() => ativacaoSetor(listValue.id, !listValue.active)} 
-                                                        color='danger' 
-                                                        icon={<HttpsOutlinedIcon/>}/>
+                                                    <a onClick={() => ativacaoSetor(listValue.id, !listValue.active)} 
+                                                        style={{'cursor': 'pointer', 'marginLeft': '10px'}}><LockOpenIcon/></a>
                                             }
                                         </div>
                                     </td> 

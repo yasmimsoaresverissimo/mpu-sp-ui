@@ -83,6 +83,8 @@ function FormularioSetor() {
                         label="Nome" 
                         onChange={ (e) => setNome(e.target.value) }
                         value={ nome }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O nome é obrigatório!"
                     />
                 </Grid>
                 <Grid item xs={6}sm={4}>
@@ -90,6 +92,8 @@ function FormularioSetor() {
                         label="Órgão" 
                         onChange={ (e) => setOrgao(e.target.value) }
                         value={ orgao }
+                        validation={(value) => value.length > 0}
+                        errorMessage="O órgão é obrigatório!"
                     /> 
                     </Grid>
                 <Grid item xs={6}sm={4}>
@@ -97,6 +101,8 @@ function FormularioSetor() {
                         label="Sigla"
                         onChange={ (e) => setSigla(e.target.value) }
                         value={ sigla }
+                        validation={(value) => value.length > 0}
+                        errorMessage="A sigla é obrigatória!"
                     />
                 </Grid>
 
@@ -105,6 +111,8 @@ function FormularioSetor() {
                         label="Unidade Pai" 
                         onChange={ (e) => setUnidadePai(e.target.value) }
                         value={ unidadepai }
+                        validation={(value) => value.length > 0}
+                        errorMessage="A unidade pai é obrigatória!"
                     />
                 </Grid>
                 <Grid item xs={6}sm={4}>
@@ -112,6 +120,8 @@ function FormularioSetor() {
                         label="Localidade"
                         onChange={ (e) => setLocalidade(e.target.value) }
                         value={ localidade}
+                        validation={(value) => value.length > 0}
+                        errorMessage="A localidade é obrigatória!"
                     />
                 </Grid>
             </Grid>
@@ -126,10 +136,8 @@ function FormularioSetor() {
                         <Link className='BtnCriarDocumento AppCriarDocumento' to="/cadastro-setor"><Button value="Voltar" color="grey" /></Link>
                     </Grid>
                 </Grid>
-
         </Form>
     </Conteudo>
-
 }
 
 export default FormularioSetor

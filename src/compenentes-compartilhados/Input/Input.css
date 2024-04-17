@@ -34,3 +34,11 @@
 .AppInput label input::placeholder { 
     color: #ccc;
 }
+
+.error {
+    width: 100%;
+    padding: 2px;
+    background-color: #ff5252;
+    color: white;
+    font-size: 13px;
+}
