@@ -1,7 +1,20 @@
 
-import http from "../../../utils/http"; 
+import http from "../../../utils/http-user"; 
 import { Usuario } from "../FormularioUsuario";
 
+const baseURL = '/v1/user'
+
+export const cadastrarUsuario = (usuario: Usuario) =>{
+    http.post(`${baseURL}/cadastrar`, usuario)
+}
+export const editarUsuario = (usuario: Usuario, id: String) =>{
+    http.put(`${baseURL}/editar/${id}`, usuario)
+}
+export const buscarUsuarioPorId = (id:string) => {
+    return http
+        .get(`${baseURL}/buscar/${id}`)
+        .then(response => response.data); 
+} 
 export const listarUsuarios = () => {
     return http
         .get('/usuario/listar')
@@ -21,6 +34,3 @@ export const buscarUsuario = (id:string) => {
         .then(response => response.data); 
 }   
 
-export const cadastrarUsuario = (usu: Usuario) => {
-    http.post('/usuario/cadastro', usu)
-}

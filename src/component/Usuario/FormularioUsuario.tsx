@@ -1,39 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "../../compenentes-compartilhados/Form/Form";
 import Input from "../../compenentes-compartilhados/Input/Input";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import { Grid } from "@mui/material";
 import Button from "../../compenentes-compartilhados/Button/Button";
 import './FormularioUsuario.css'
-import { cadastrarUsuario } from "./Servico/usuario.service";
+import { buscarUsuarioPorId, cadastrarUsuario, editarUsuario } from "./Servico/usuario.service";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export class Usuario {
     id?: string
     nome?: string
     rg?: string 
     cpf?: string
-    setor?: string
     nascimento?: string
     endereco?: string
     email?: string
     telefone?: string
+    departmentId?: string
 }
 
 function FormularioUsuario() {
 
     const usuario = new Usuario()
-
-    const [ id ] = useState('');
+    const { id } = useParams();
     const [ nome, setNome ] = useState('');
     const [ rg, setRg ] = useState('');
     const [ cpf, setCpf ] = useState(''); 
-    const [ setor, setSetor ] = useState('');
     const [ nascimento, setNascimento ] = useState('');
     const [ endereco, setEndereco ] = useState('');
     const [ email, setEmail ] = useState('');
-    const [ telefone ] = useState('');
+    const [ telefone, setTelefone ] = useState('');
+    const [departmentId, setDepartmentId] = useState('')
 
     function enviarFormulario(e:any) {
         e.preventDefault();
@@ -43,18 +42,23 @@ function FormularioUsuario() {
             return;
         }
 
-        usuario.nome = nome
-        usuario.cpf = cpf
-        usuario.email = email
-        usuario.endereco = endereco
         usuario.id = id
-        usuario.nascimento = nascimento
+        usuario.nome = nome
         usuario.rg = rg
-        usuario.setor = setor
+        usuario.cpf = cpf
+        usuario.nascimento = nascimento
+        usuario.endereco = endereco
+        usuario.email = email
         usuario.telefone = telefone
+        usuario.departmentId = departmentId
 
         try {
-            cadastrarUsuario(usuario)
+            if(id == null){
+                cadastrarUsuario(usuario)
+            }else {
+                editarUsuario(usuario, id)
+            }
+  
             Swal.fire('Usuário', `O Usuário ${ nome } foi cadastrado com sucesso`, 'success')
         } catch(err) {
             if (err instanceof Error) 
@@ -63,10 +67,29 @@ function FormularioUsuario() {
  
     }
 
+    useEffect(() => {
+        if(id) {
+          const _usuario = buscarUsuarioPorId(id)
+          _usuario.then(data => {
+              setNome(data.nome)
+              setRg(data.rg)
+              setCpf(data.cpf)
+              setNascimento(data.nascimento)
+              setEndereco(data.endereco)
+              setEmail(data.email)
+              setTelefone(data.telefone)
+              setDepartmentId(data.departmentId)
+          }).catch(error =>{
+              console.error('Erro ao fazer login', error);
+              Swal.fire("Oops!", error.message, "error")
+          });
+        }  
+      },[]);
+
     return <Conteudo >
         
         <Form 
-            titulo={"Cadastro de Usuário"}
+            titulo={!id? "Cadastro de Usuário" : "Edição de Usuário"}
             onSubmit={ enviarFormulario } 
         >   
             <Grid item xs={12}>
@@ -92,23 +115,30 @@ function FormularioUsuario() {
 
                 <Grid item xs={6}sm={4}>
                     <Input 
-                        label="Setor" 
-                        onChange={ (e) => setSetor(e.target.value) }
-                        value={ setor }
+                        label="Telefone" 
+                        onChange={ (e) => setTelefone(e.target.value) }
+                        value={ telefone }
                     />
                 </Grid>
-                <Grid item xs={6} sm={5}>
+                <Grid item xs={6} sm={4}>
                     <Input 
                         label="Data Nascimento"
                         onChange={ (e) => setNascimento(e.target.value) }
                         value={ nascimento }
                     />
                 </Grid>
-                <Grid item xs={12}sm={7}>
+                <Grid item xs={6}sm={4}>
                     <Input 
                         label="Endereço"
                         onChange={ (e) => setEndereco(e.target.value) }
                         value={ endereco }
+                    />
+                </Grid>
+                <Grid item xs={6}sm={4}>
+                    <Input 
+                        label="Departamento"
+                        onChange={ (e) => setDepartmentId(e.target.value) }
+                        value={ departmentId }
                     />
                 </Grid>
             </Grid>
