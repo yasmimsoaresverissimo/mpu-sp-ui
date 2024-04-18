@@ -10,22 +10,10 @@ import UpdateIcon from '@mui/icons-material/Update';
 import HttpsOutlinedIcon from '@mui/icons-material/HttpsOutlined';
 import { listarSetores, ativarDesativarSetor} from './Servico/Servico';
 import { access } from 'fs';
-import { DialogTitle, LinearProgress, Pagination } from '@mui/material';
+import { Pagination } from '@mui/material';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import Dialog from '@mui/material/Dialog';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
-
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'white',
-    border: 'none',
-    boxShadow: 24,
-    p: 3
-  };
+import ModalComponent from '../../compenentes-compartilhados/Modal/Modal';
 
 export class DepartmentActive {
     active?: boolean;
@@ -46,13 +34,7 @@ function CadastrarSetor() {
     };
 
     /**Modal */
-    const [open, setOpen] = React.useState(false);
-    const abrirDialog = () => {
-        setOpen(true);
-    }
-    const fecharDialog = () => {
-        setOpen(false);
-    };
+    const [modalOpen, setModalOpen] = useState(false);
 
     async function listar() {
         try{  
@@ -83,11 +65,12 @@ function CadastrarSetor() {
     }
 
     async function ativacaoSetor(id:any, active: any) {
-        abrirDialog()
+        setModalOpen(true);
         const dep = new DepartmentActive()
         dep.active = active 
         setTimeout(() => {
-            fecharDialog();
+            setModalOpen(false);
+            Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
         }, 6000);
         await ativarDesativarSetor(id, dep)
             listar();
@@ -156,16 +139,10 @@ function CadastrarSetor() {
                 shape="rounded" 
                 color='primary'/>
         </div>
-        <Dialog 
-            open={open} >
-          <Conteudo>
-            <DialogTitle style={{fontSize: '15px'}}>Carregando...</DialogTitle>
-            <div style={{ width: '80%', margin: 'auto', textAlign: 'center' }}>
-                <LinearProgress  />
-            </div>
-          </Conteudo>
-        </Dialog>
-    </Conteudo>
+        <Conteudo>
+            <ModalComponent open={modalOpen} handleClose={() => setModalOpen(false)} />
+        </Conteudo>
+        </Conteudo>
 }
 
 export default CadastrarSetor
