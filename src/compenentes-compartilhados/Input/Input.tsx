@@ -32,8 +32,6 @@ const Input: React.FC<InputProps> = (props) => {
                 <span>{props.label}</span>
                 <input
                     {...props}
-                    value={String(value)} // Conversão para string
-                    onChange={handleChange}
                 />
             </label>
             {error && <div className="error">{props.errorMessage || 'Campo inválido'}</div>}
