@@ -64,7 +64,14 @@ function TabelaUsuario() {
 
     async function buscar() {
         try{  
-           
+            const _cadastros = await listarUsuario(
+                tipoBuscar === 0 ? paramBuscar : '22',
+                tipoBuscar === 1 ? paramBuscar : '', 
+                '', 
+                SIZE_LIST)
+            setUsuarios(_cadastros.content)
+            setNumberPage(_cadastros.number)
+            setTotalPage(_cadastros.totalPages)
         } catch(err) {
             if(err instanceof Error)
             Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')

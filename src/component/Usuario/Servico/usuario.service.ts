@@ -11,7 +11,7 @@ export const cadastrarUsuario = (usuario: Usuario) =>{
 
 export const listarUsuario = (nome?: string, departamento?: string, page?: any, size?: any) => {
     return http
-        .get(`${baseURL}/listar`)
+        .get(`${baseURL}/listar?page=${page}&size=${size}&nome=${nome}&sigla=${departamento}`)
         .then(response => response.data); 
 }
 
