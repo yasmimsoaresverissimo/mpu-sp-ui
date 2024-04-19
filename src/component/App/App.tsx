@@ -31,6 +31,7 @@ function App() {
           <Route path="/documento/:sigla" element={<Documento />} ></Route> 
           <Route path="/documento" element={<Documento />} ></Route> 
           <Route path="/formulario-usuario" element={<FormularioUsuario />} ></Route>
+          <Route path="/formulario-usuario/:id" element={<FormularioUsuario />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/visualizar-documento" element={<VisualizarDoc />} ></Route>
           <Route path="/listarusuario" element={<TabelaUsuario />} ></Route>
