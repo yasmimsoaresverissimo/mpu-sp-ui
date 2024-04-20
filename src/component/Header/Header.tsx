@@ -26,8 +26,8 @@ function Header() {
     return <div className="AppHeader" hidden={ exibindoNavbar() }>
             <Conteudo>
                 <div className='Container'>
-                    <div className='TextoHeader'>
-                        <Link to="/mesa-virtual">MPU SP</Link>
+                    <div className='Logo'>
+                        <Link to="/mesa-virtual"><b>SIM!</b></Link>
                     </div>
                     <div className="menu">
                         <Button href="#" onClick={() => setShowMenu(false)}><MenuIcon sx={{ color: 'white' }} fontSize="large" /></Button>

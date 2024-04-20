@@ -39,8 +39,8 @@ function SubHeader() {
                         </div>
                             
                         <div className="Container2">
-                            <Chip className="Avatar" avatar={<Avatar sx={{ background: 'white' }}>{nameUser.substring(0,1).toUpperCase()}</Avatar>} label={nameUser} />
-                            <Button onClick={() => logout()} value="Sair" color="danger" className="BotaoSair" />
+                            <Chip className="Avatar" color={"primary"} avatar={<Avatar sx={{ background: '#212121' }}><p style={{color: 'white'}}>{nameUser.substring(0,1).toUpperCase()}</p></Avatar>} label={nameUser} />
+                            <Button onClick={() => logout()} value="Sair" color="danger"  />
                         </div> 
                     </div>
                 </Conteudo>

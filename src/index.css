@@ -13,8 +13,8 @@ code {
 }
 
 :root {
-  --cor-padrao: #4b7e5f;
-  --sub-cor-padrao:rgb(176, 250, 206);
+  --cor-padrao: #0277bd;
+  --sub-cor-padrao:#cfd8dc  ;
 }
 
 .left {

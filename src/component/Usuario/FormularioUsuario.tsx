@@ -172,7 +172,7 @@ function FormularioUsuario() {
                         </Button> 
                     </Grid>
                     <Grid item xs={6}sm={3}>
-                        <Link className='BtnCriarDocumento AppCriarDocumento' to="/listar-usuario"><Button value="Cancelar" color="grey" /></Link>
+                        <Link className='BtnCriarDocumento AppCriarDocumento' to="/listar-usuario"><Button value="Voltar" color="grey" /></Link>
                     </Grid>
                 </Grid>
 
