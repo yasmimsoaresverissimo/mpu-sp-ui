@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "../../compenentes-compartilhados/Form/Form";
 import Input from "../../compenentes-compartilhados/Input/Input";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
@@ -19,6 +19,13 @@ export class DocumentoModel {
 function Documento() {
 
     const { sigla } = useParams();
+    const [ descricao, setDescricao ] = useState('')
+    const [ label, setLabel ] = useState('')
+
+    const handleInputChange = (event:any) => {
+        const { value } = event.target;
+        setDescricao((prevValues) => prevValues + " " + value);
+    };
 
     return <Conteudo >
         
@@ -34,11 +41,11 @@ function Documento() {
                 <User />
 
             </Grid>
-            <Input label="Interessado"/>
-            <Input label="Assunto"/>
-            <Input label="Número de referência"/>
             
-            <textarea className="TextArea"></textarea>
+            <Input label="Interessado" onChange={handleInputChange} />
+            <Input label="Assunto" onChange={handleInputChange} />
+            <Input label="Número de referência" onChange={handleInputChange} />
+            <textarea className="TextArea" value={descricao} />
 
             <Grid container spacing={1}>
                 <Grid item xs={4} sm={2}>
