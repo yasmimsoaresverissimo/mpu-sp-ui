@@ -59,6 +59,7 @@ function Login(props: LoginProps) {
                     <Input label='Login:'
                     onChange={ (e) => setMatricula(e.target.value)} />
                     </Grid>
+                    
                     <Grid item xs={9}>
                     <Input label='Senha:'
                     onChange={ (e) => setPassword(e.target.value) }/>
