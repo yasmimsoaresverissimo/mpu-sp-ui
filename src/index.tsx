@@ -6,6 +6,8 @@ import Header from './component/Header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import SubHeader from './component/SubHeader/SubHeader';
 
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
