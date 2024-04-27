@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import ModeloMemorando from "../modelos/ModeloMemorando";
-import Form from "../../compenentes-compartilhados/Form/Form";
-import Input from "../../compenentes-compartilhados/Input/Input";
-import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import { listarDocuments } from './Service/Service';
 import './Documento.css'
-import { Grid } from "@mui/material";
-import Button from "../../compenentes-compartilhados/Button/Button";
-import { Link } from "react-router-dom";
-import User from "../../compenentes-compartilhados/User/User";
+import Form from "../../compenentes-compartilhados/Form/Form";
+import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
+import { Grid, TextField } from "@mui/material";
 import { useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
+import Autocomplete from '@mui/material/Autocomplete';
+import Swal from "sweetalert2";
+import ModalComponent from "../../compenentes-compartilhados/Modal/Modal";
 
 export class DocumentoModel {
     sigla?: string
@@ -19,93 +18,89 @@ export class DocumentoModel {
     tempo?: string
 }
 
+interface Modelo {
+  id: number;
+  html: string;
+  label: string
+  descricaoCompleta: string
+}
+
 function Documento() {
 
-    useEffect(() => {
-        // Função para importar '../../scriptQualquer' após o HTML ser renderizado
-        const importarScriptQualquer = async () => {
-            const scriptQualquer = require(/* webpackIgnore: true */ '../../scriptQualquer');        };
-    
-        // Chama a função para importar o script após o HTML ser renderizado
-        importarScriptQualquer();
-      }, []);
-
-    const handleInputChange = (event: any) => {
-        const { name, value } = event.target;
-        setDescricao((prevDescricao) => {
-          return Object.assign({}, prevDescricao, { [name]: value });
-        });
-      };
-      
+  const [modelos, setModelos] = useState<Modelo[]>([]);
+  const [modelo, setModelo] = useState<Modelo | null>(null);
     const { sigla } = useParams();
-    const [descricao, setDescricao] = useState('');
-    const [ label, setLabel ] = useState('')
-    const [valorConcatenado, setValorConcatenado] = useState("");
+    const [descricaoDetalhadaModelo, setDescricaoDetalhadaModelo] = useState('');
+    const [selection, setSelection] = useState(false);
+    /**Modal */
+    const [modalOpen, setModalOpen] = useState(false);
 
-    const handleConcatenatedValueChange = (value: string) => {
-        setValorConcatenado(value);
-      };
+    useEffect(() => {
+        listar()
+    }, []);
 
-      const handleConcatenateButtonClick = () => {
-        // Lógica a ser executada quando o botão de concatenação for clicado
-        console.log("Botão de concatenação clicado!");
-      };
+    useEffect(() => {
+      if (modelos.length > 0) {
+        setModelo(modelos[0]);
+      }
+    }, [modelos]);
 
-    const html = `
+    useEffect(() => {
+      if(selection) {
+        
+      }
+      setSelection(false)
+    }, [setModelo]);
+
+    const html = `${modelo?.html}`;
+
+    async function listar() {
+      try{  
+          const _cadastros = await listarDocuments()
+          setModelos(_cadastros)
+      } catch(err) {
+          if(err instanceof Error)
+          Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
+      }
+    }
+
+    async function foiSelecionadoUmModelo(value: any) {
+        setModalOpen(true)
+        setModelo(value);
+        setTimeout(() => {
+        const importarScriptQualquer = async () => {
+        const scriptQualquer = require('../../scriptCadastroDocumento');
+        };
+          importarScriptQualquer();
+          setModalOpen(false)
+        }, 5000);
+    }
     
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Login</title>
-      </head>
-      <body>
-        <form id="loginForm">
-          <label for="matricula">Matricula:</label>
-          <input type="text" id="matricula" name="matricula" required />
-          <br />
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-          <br />
-          <button type="submit">Login</button>
-        </form>
-        <div id="response"></div>
-        </body>
-    </html>
-    
-    `
-
     return <Conteudo >
         <Form titulo={!sigla ? 'Criar documento' : 'Editar documento'}>
             <Grid container spacing={2}>
+                <Grid item xs={12} sm={4}>
+                  <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={modelos}
+                    sx={{ width: 250 }}
+                    renderInput={(params) => <TextField {...params} label="Modelo" />}
+                    onChange={(event, value) => {
+                      foiSelecionadoUmModelo(value)
+                    }}
+                  />
+                </Grid> 
                 <Grid item xs={12} sm={6}>
-                    <Input label="Modelo"/>
+                  <p className="descricao-completa-modelo">{ descricaoDetalhadaModelo }</p>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Input label="Meus textos padrões"/>
-                </Grid>
-                <User />
             </Grid>
             <div>
-            {parse(html)}
+              { parse(html) }
             </div>
-            
-
-            <Grid container spacing={1}>
-                <Grid item xs={4} sm={2}>
-                    <Button value="Criar" color="create" />
-                </Grid>
-                <Grid item xs={4} sm={2}>
-                    <Button>Visualizar</Button>
-                </Grid>
-                <Grid item xs={4} sm={2}>
-                <Link className='BtnCriarDocumento AppCriarDocumento' to="/mesa-virtual"><Button value="Cancelar" color="grey" /></Link>
-                    
-                </Grid>
-            </Grid>
-
         </Form>
+        <ModalComponent descricao="O modelo do documento está sendo carregado..." open={modalOpen}/>
     </Conteudo>
-
 }
 
 export default Documento

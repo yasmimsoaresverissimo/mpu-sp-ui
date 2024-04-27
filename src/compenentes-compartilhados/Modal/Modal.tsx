@@ -4,14 +4,15 @@ import './Modal.css';
 
 interface ModalProps {
   open: boolean;
-  handleClose: () => void;
+  handleClose?: () => void;
+  descricao?: string
 }
 
-const ModalComponent: React.FC<ModalProps> = ({ open, handleClose }) => {
+const ModalComponent: React.FC<ModalProps> = ({ open, handleClose, descricao }) => {
   return (
     <Dialog open={open} onClose={handleClose}>
-      <div className="modal">
-        <DialogTitle className="modal-title">Carregando...</DialogTitle>
+      <div className="modal-carregamento ">
+        <DialogTitle className="modal-title">{ descricao }</DialogTitle>
         <div className="modal-content">
           <LinearProgress />
         </div>

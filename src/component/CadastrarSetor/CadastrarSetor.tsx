@@ -139,9 +139,7 @@ function CadastrarSetor() {
                 shape="rounded" 
                 color='primary'/>
         </div>
-        <Conteudo>
-            <ModalComponent open={modalOpen} handleClose={() => setModalOpen(false)} />
-        </Conteudo>
+        <ModalComponent descricao="Aguarde..." open={modalOpen}/>
         </Conteudo>
 }
 
