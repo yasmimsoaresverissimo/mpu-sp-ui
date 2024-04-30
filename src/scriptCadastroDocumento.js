@@ -1,3 +1,32 @@
+document.addEventListener('DOMContentLoaded', function() {
+  var campoMatricula = document.getElementById('matricula');
+  var campoNomeCompleto = document.getElementById('nomeCompleto');
+
+  campoMatricula.addEventListener('blur', function() {
+      var matricula = campoMatricula.value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://localhost:8082/v1/user/buscar/' + matricula + '/matricula', true);
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  var usuario = JSON.parse(xhr.responseText);
+                  campoNomeCompleto.value = usuario.nome;
+              } else {
+                  console.error('Erro ao buscar usuário:', xhr.statusText);
+                  alert('Erro ao buscar usuário. Por favor, tente novamente.');
+              }
+          }
+      };
+      xhr.send();
+  });
+
+  // Adicionando um event listener para limpar o campo de nome completo quando clicar fora do campo de matrícula
+  campoMatricula.addEventListener('blur', function() {
+      campoNomeCompleto.value = '';
+  });
+});
+
 const documentoForm = document.getElementById('documentoForm');
 const responseDiv = document.getElementById('response');
 
@@ -14,8 +43,11 @@ documentoForm.addEventListener('submit', (event) => {
   descricao += `${input.id}: ${input.value};`;
   }
 }
+
+    const pessoa = document.getElementById('nomeCompleto').value;
     const data = {
-      descricao: descricao
+      descricao: descricao,
+      Pessoa: pessoa
     };
 
   const xhr = new XMLHttpRequest();
@@ -24,7 +56,6 @@ documentoForm.addEventListener('submit', (event) => {
   xhr.onload = () => {
     if (xhr.status === 201) {
       responseDiv.textContent = xhr.responseText;
-      testForm.reset();
       alert("Formulário enviado com sucesso!");
     } else {
   
