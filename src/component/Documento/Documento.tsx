@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { listarDocuments } from './Service/Service';
+import { listarModelos } from './Service/Service';
 import './Documento.css'
 import Form from "../../compenentes-compartilhados/Form/Form";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
@@ -23,57 +23,55 @@ interface Modelo {
   html: string;
   label: string
   descricaoCompleta: string
+  active: boolean,
+  siglaModel: string
 }
 
 function Documento() {
 
-  const [modelos, setModelos] = useState<Modelo[]>([]);
-  const [modelo, setModelo] = useState<Modelo | null>(null);
+    const [modelos, setModelos] = useState<Modelo[]>([]);
+    const [modelo, setModelo] = useState<Modelo | null>(null);
     const { sigla } = useParams();
     const [descricaoDetalhadaModelo, setDescricaoDetalhadaModelo] = useState('');
-    const [selection, setSelection] = useState(false);
+    const [ label, setLabel ] = useState('')
     /**Modal */
     const [modalOpen, setModalOpen] = useState(false);
 
-    useEffect(() => {
-        listar()
-    }, []);
+    const [html, setHtml] = useState("");
 
     useEffect(() => {
-      if (modelos.length > 0) {
-        setModelo(modelos[0]);
+      // Atualiza o HTML sempre que o estado 'modelo' mudar.
+      if (modelo) {
+          setHtml(modelo.html);
+      } else {
+          setHtml('Nenhum modelo selecionado');
       }
-    }, [modelos]);
+  }, [modelo]);
 
-    useEffect(() => {
-      if(selection) {
-        
-      }
-      setSelection(false)
-    }, [setModelo]);
+  useEffect(() => {
+      const scriptCadastroDocumento = async () => {
+          try {
+            const scriptCadastroDocumento = await require('../../scriptCadastroDocumento');
+          } catch (error) {
+              console.error("Erro ao importar script:", error);
+          }
+      };
+      scriptCadastroDocumento();
+      listar() 
+  }, []);
 
-    const html = `${modelo?.html}`;
-
-    async function listar() {
-      try{  
-          const _cadastros = await listarDocuments()
-          setModelos(_cadastros)
-      } catch(err) {
-          if(err instanceof Error)
-          Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
-      }
+  async function listar() {
+    try{  
+        const _cadastros = await listarModelos()
+        setModelos(_cadastros)
+    } catch(err) {
+        if(err instanceof Error)
+        Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
     }
+  }
 
     async function foiSelecionadoUmModelo(value: any) {
-        setModalOpen(true)
         setModelo(value);
-        setTimeout(() => {
-        const importarScriptQualquer = async () => {
-        const scriptQualquer = require('../../scriptCadastroDocumento');
-        };
-          importarScriptQualquer();
-          setModalOpen(false)
-        }, 5000);
     }
     
     return <Conteudo >
@@ -85,7 +83,7 @@ function Documento() {
                     id="combo-box-demo"
                     options={modelos}
                     sx={{ width: 250 }}
-                    renderInput={(params) => <TextField {...params} label="Modelo" />}
+                    renderInput={(params) => <TextField {...params} label="Selecione um modelo..." />}
                     onChange={(event, value) => {
                       foiSelecionadoUmModelo(value)
                     }}
@@ -95,8 +93,17 @@ function Documento() {
                   <p className="descricao-completa-modelo">{ descricaoDetalhadaModelo }</p>
                 </Grid>
             </Grid>
+            
             <div>
-              { parse(html) }
+              { 
+                parse(
+                  `<form class="documentoForm" id="documentoForm">` 
+                    + html + 
+                    `<button type="submit" class="btn btn-primary">Criar</button>` +
+                    `<button type="submit" class="btn btn-primary">Visualizar</button>` +
+                  `</form>`
+                ) 
+              }
             </div>
         </Form>
         <ModalComponent descricao="O modelo do documento está sendo carregado..." open={modalOpen}/>
