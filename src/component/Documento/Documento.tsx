@@ -97,9 +97,26 @@ function Documento() {
             <div>
               { 
                 parse(
-                  `<form class="documentoForm" id="documentoForm">` 
-                    + html + 
-                    `<button type="submit" class="btn btn-primary">Criar</button>` +
+                  `<div class="container-box">
+                    <div class="item-box-1">
+                    <label>Matrícula</label>
+                      <div class="input-group">
+                        <input type="text" class="MatriculaUsuario" id="MatriculaUsuario" placeholder="Matrícula">
+                        <button type="button" class="BtnModalListarPessoas" id="BtnModalListarPessoas">...</button>
+                      </div>
+                    </div>
+                    <div class="item-box-2">
+                      <label>Nome completo</label>
+                      <input type="text" class="NomeClompletoUsuario" id="NomeClompletoUsuario" placeholder="Nome">
+                    </div>
+                  </div>
+                  ` + 
+                  
+                  `<form class="documentoForm" id="documentoForm">` + 
+                    `<div class="item-gerais">` +
+                      html + 
+                    `<div>` +
+                    `<button type="submit" class="BtnCriar">Criar</button>` +
                     `<button type="submit" class="btn btn-primary">Visualizar</button>` +
                   `</form>`
                 ) 
