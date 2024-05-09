@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import { listarModelos } from './Service/Service';
 import './Documento.css'
 import Form from "../../compenentes-compartilhados/Form/Form";
@@ -10,6 +9,7 @@ import parse from 'html-react-parser';
 import Autocomplete from '@mui/material/Autocomplete';
 import Swal from "sweetalert2";
 import ModalComponent from "../../compenentes-compartilhados/Modal/Modal";
+import Input from "../../compenentes-compartilhados/Input/Input";
 
 export class DocumentoModel {
     sigla?: string
@@ -19,7 +19,7 @@ export class DocumentoModel {
 }
 
 interface Modelo {
-  id: number;
+  modelId: number;
   html: string;
   label: string
   descricaoCompleta: string
@@ -43,10 +43,8 @@ function Documento() {
       // Atualiza o HTML sempre que o estado 'modelo' mudar.
       if (modelo) {
           setHtml(modelo.html);
-      } else {
-          setHtml('Nenhum modelo selecionado');
-      }
-  }, [modelo]);
+      } 
+  }, [modelo, setModelo]);
 
   useEffect(() => {
       const scriptCadastroDocumento = async () => {
@@ -97,7 +95,12 @@ function Documento() {
             <div>
               { 
                 parse(
-                  `<div class="container-box">
+                  `<input type="hidden" class="Modelo" id="Modelo" value="${modelo?.modelId}">` +
+                  
+                  `<form class="documentoForm" id="documentoForm">` + 
+                  `
+                  <div class="container-box">
+                     
                     <div class="item-box-1">
                     <label>Matrícula</label>
                       <div class="input-group">
@@ -110,9 +113,7 @@ function Documento() {
                       <input type="text" class="NomeClompletoUsuario" id="NomeClompletoUsuario" placeholder="Nome">
                     </div>
                   </div>
-                  ` + 
-                  
-                  `<form class="documentoForm" id="documentoForm">` + 
+                  ` +
                     `<div class="item-gerais">` +
                       html + 
                     `<div>` +
