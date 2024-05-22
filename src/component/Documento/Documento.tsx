@@ -21,7 +21,7 @@ export class DocumentoModel {
 
 interface Modelo {
   modelId: number;
-  html: string;
+  htmlForm: string;
   label: string
   descricaoCompleta: string
   active: boolean,
@@ -49,7 +49,7 @@ function Documento() {
 useEffect(() => {
       // Atualiza o HTML sempre que o estado 'modelo' mudar.
     if (modelo) {
-      setHtml(modelo.html);
+      setHtml(modelo.htmlForm);
     } 
 }, [modelo, setModelo]);
 
