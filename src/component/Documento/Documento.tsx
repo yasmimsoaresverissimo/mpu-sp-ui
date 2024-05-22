@@ -29,7 +29,6 @@ interface Modelo {
 }
 
 function Documento() {
- 
     const [modelos, setModelos] = useState<Modelo[]>([]);
     const [modelo, setModelo] = useState<Modelo | null>(null);
     const { sigla } = useParams();
