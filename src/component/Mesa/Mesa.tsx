@@ -81,10 +81,10 @@ function Mesa() {
     return <Conteudo >
             <div className='HeaderMesa'>
                 <h2>Mesa virtual <FolderCopyIcon /> </h2>
-                <div className='left'>
-                    <InputGroup onChange={ (e) => setSiglaDocumento(e.target.value) } onClickButton={ () => redirecionaVisualizarDocumento()} placeholder='Buscar Documento'></InputGroup>
+                <div className='left GroupButton'>
+                    <InputGroup onChange={ (e) => setSiglaDocumento(e.target.value) } onClickButton={ () => redirecionaVisualizarDocumento()} placeholder='Buscar'></InputGroup>
                 </div>
-                <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button value='Criar Documento' color='create'></Button></Link>
+                <Link className='BtnCriarDocumento AppCriarDocumento right' to="/documento"><Button className='BtnCriarDocumento' value='Criar Documento' color='create'></Button></Link>
                 <div className="clear"></div>
             </div>
             <div className="accordion-heading" onClick={() => handleClick(1) } >Documentos criados</div>
