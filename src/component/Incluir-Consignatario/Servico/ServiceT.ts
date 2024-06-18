@@ -1,7 +1,6 @@
-import http from "../../../utils/http-document"; 
-import { Cossignatario } from "../Incluir";
+import http from "../../../utils/http"; 
 
-const baseURL = '/v1/department'
+const baseURL = '/v1/user'
 
 export const IncluirCossignatario = () => {
     http.post(`${baseURL}/cadastrar`,)
