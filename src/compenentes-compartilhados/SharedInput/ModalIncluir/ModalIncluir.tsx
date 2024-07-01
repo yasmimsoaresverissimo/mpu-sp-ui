@@ -15,9 +15,10 @@ interface ModProps {
   setMatricula: (value: string) => void;
   setNome: (value: string) => void;
   setDepartmentId: (value: string) => void;
+  setPessoaRecebedoraId: (value: string) => void;
 }
 
-const ModalIncluir: React.FC<ModProps> = ({ open, handleClose, setMatricula, setNome, setDepartmentId}) => {
+const ModalIncluir: React.FC<ModProps> = ({ open, handleClose, setMatricula, setNome, setDepartmentId,setPessoaRecebedoraId}) => {
 
     const SIZE_LIST = 2
     const [usuarios, setUsuarios] = useState([]);
@@ -72,6 +73,7 @@ const ModalIncluir: React.FC<ModProps> = ({ open, handleClose, setMatricula, set
         setMatricula(user.matricula);
         setNome(user.nome);
         setDepartmentId(user.departmentId);
+        setPessoaRecebedoraId(user.id);
         handleClose(); 
       };
 
