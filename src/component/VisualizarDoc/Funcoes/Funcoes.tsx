@@ -51,6 +51,7 @@ function Funcoes(props: FuncoesProp) {
     const handleIncluirClick = () => {
         setOpenIncluir(true);
     };
+    
 
     return <div className="AppFucoes"> 
         <Grid container spacing={0.7}>
@@ -85,7 +86,17 @@ function Funcoes(props: FuncoesProp) {
             </Grid>
          
         </Grid>
+        <Assinar
+            open={openAssinar}
+            selectedValue=""
+            onClose={handleClose}
+            tituloHeader="Assinatura do Documento"
+            titulo="Escolha o método de assinatura"
+            radius={true}
+            codigoDocumento={props.codigoDocumento}
+        />
     </div>
+   
 
 }
 
