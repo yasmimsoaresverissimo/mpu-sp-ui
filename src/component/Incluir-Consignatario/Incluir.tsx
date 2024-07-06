@@ -46,9 +46,7 @@ function Incluir() {
     setModalOpen(false);
   };
 
-  const handleIncluir = async (event: any) => {
-    event.preventDefault();
-
+  const handleIncluir = async () => {
     if (!pessoaRecebedoraId) {
       return;
     }
@@ -62,12 +60,14 @@ function Incluir() {
     try {
       if (siglaDocumento) {
         await incluircossignatario(cossignatario, siglaDocumento);
-        Swal.fire('Sucesso', `O cossignatário foi incluído com sucesso`, 'success');
+        Swal.fire('Sucesso', 'O cossignatário foi incluído com sucesso', 'success');
       } else {
         Swal.fire('Erro', 'Sigla do documento não encontrada', 'error');
       }
-    } catch (err) {
-      if (err instanceof Error) {
+    } catch (err:any) {
+      if (err.response && err.response.status === 409) {
+        Swal.fire('Atenção', 'O cossignatário já foi incluído anteriormente', 'warning');
+      } else if (err instanceof Error) {
         Swal.fire('Oops!', err.message, 'error');
       }
     }
@@ -77,7 +77,7 @@ function Incluir() {
     <Conteudo>
       <Form
         titulo={"Inclusão de Cossignatário"}
-        onSubmit={handleIncluir}
+        onSubmit={(e)=>e.preventDefault()}
       >
         <Grid container spacing={2}>
           <Grid item xs={6} sm={7}>
@@ -100,7 +100,7 @@ function Incluir() {
         </Grid>
         <Grid container spacing={1}>
           <Grid item xs={4} sm={3}>
-            <Button type="submit">Incluir</Button>
+            <Button onClick={handleIncluir}>Incluir</Button>
           </Grid>
           <Grid item xs={4} sm={3}>
             <Link className='BtnCriarDocumento AppCriarDocumento' to="/visualizar-documento">
