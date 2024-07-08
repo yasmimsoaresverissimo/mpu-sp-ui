@@ -1,8 +1,9 @@
-.AppBox{ 
+.AppBox { 
     width: 100%; 
     padding: 2px;
     border: 1px solid #ccc;
 }
+
 .HeaderBox {
     font-size: 15px;
     background-color: var(--cor-padrao);
@@ -19,12 +20,16 @@
 .BoxList {
     max-height: 100px; 
     overflow-y: hidden;
+    
 }
 
 .BoxListItem {
     font-size: 16px;
     color: #333;
     padding: 5px 0;
+    list-style-type: disc;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .ExpandButton {
@@ -32,5 +37,12 @@
     border: none;
     color: white;
     cursor: pointer;
-    font-size: 14px;
+}
+
+.DeleteButton {
+    color: red;
+    cursor: pointer;
+}
+.BoxListItemContent {
+    flex: 1;
 }
