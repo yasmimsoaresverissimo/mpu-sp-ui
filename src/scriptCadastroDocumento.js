@@ -69,7 +69,8 @@ var idUsuario;
     xhr.onload = () => {
       if (xhr.status === 201) {
         const jsonObject = JSON.parse(xhr.response);
-        localStorage.setItem('SIGLA_DOCUMENTO', jsonObject.mobil.sigla);
+        const sigla = jsonObject.mobil.siglaMobil;
+        localStorage.setItem('SIGLA_DOCUMENTO', sigla);
       } else {
         // Lógica para lidar com outros códigos de status de resposta, se necessário
       }
