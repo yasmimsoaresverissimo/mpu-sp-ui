@@ -4,13 +4,16 @@ import './Documento.css'
 import Form from "../../compenentes-compartilhados/Form/Form";
 import Conteudo from "../../compenentes-compartilhados/Conteudo/Conteudo";
 import { Grid, TextField } from "@mui/material";
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import Autocomplete from '@mui/material/Autocomplete';
 import Swal from "sweetalert2";
 import ModalComponent from "../../compenentes-compartilhados/Modal/Modal";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import Button from "../../compenentes-compartilhados/Button/Button";
+
+
 
 export class DocumentoModel {
     sigla?: string
@@ -169,11 +172,17 @@ function Documento() {
             />
           ) : null}
         </div>
-        <div style={{ marginTop: '50px' }}>
+        
+        <div className="BtnContainer">
           {parse(`
-            <button type="submit" class="BtnCriar">Criar</button>
-            <button type="submit" class="btn btn-primary">Visualizar</button>
+             ${sigla? '' : '<button type="submit" class="BtnCriar">Criar</button>'}
           `)}
+          {/*aqui é onde o botao some caso a sigla seja*/}
+          {sigla &&(
+          <Link className='BtnCriarDocumento AppCriarDocumento' to={`/visualizar-documento/${sigla}`}>
+            <Button value="Editar" color="grey" className="BtnCriarEditar" />
+          </Link>
+          )}
         </div>
       </Form>
       <ModalComponent descricao="O modelo do documento está sendo carregado..." open={modalOpen} />

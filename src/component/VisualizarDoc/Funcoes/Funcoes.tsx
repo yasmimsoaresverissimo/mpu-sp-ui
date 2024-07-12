@@ -94,7 +94,7 @@ function Funcoes(props: FuncoesProp) {
           <Button onClick={handleAssinarClick}>Assinar</Button>
         </Grid>
         <Grid item xs={4} sm={2.4}>
-          <Link className='BtnCriarDocumento AppCriarDocumento' to="/editar-documento">
+          <Link className='BtnCriarDocumento AppCriarDocumento' to={`/documento/${codigoDocumento}`}>
             <Button>Editar</Button>
           </Link>
         </Grid>
