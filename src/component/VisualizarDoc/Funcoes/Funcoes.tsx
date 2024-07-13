@@ -6,37 +6,18 @@ import Assinar from '../../Assinar/Assinar';
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from "react-router-dom";
 import Finalizar from '../../../compenentes-compartilhados/BtnFinalizar/Finalizar';
-import { buscarDocumento, finalizarDocumento } from '../../Mesa/Servico/documento.servico';
+import { buscarDocumento} from '../../Mesa/Servico/documento.servico';
+import Excluir from '../../../compenentes-compartilhados/BtnExcluir/Excluir';
 
 interface FuncoesProp {
   codigoDocumento?: string;
 }
 
-const Excluir = () => {
-  Swal.fire({
-    title: 'Você tem certeza?',
-    text: "Você não vai poder reverte essa ação!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Sim, Excluir!',
-    cancelButtonText: 'Cancelar!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire(
-        'Deletado!',
-        'Seu documento foi deletado!.',
-        'success'
-      );
-    }
-  });
-};
-
 function Funcoes(props: FuncoesProp) {
   const [openAssinar, setOpenAssinar] = useState(false);
   const [openIncluir, setOpenIncluir] = useState(false);
   const [showFinalizar, setShowFinalizar] = useState(true);
+  const [showExcluir, setShowExcluir] = useState(true);
   const [documentoData, setDocumentoData] = useState<any>({});
 
   const navigate = useNavigate();
@@ -57,6 +38,11 @@ function Funcoes(props: FuncoesProp) {
         setShowFinalizar(false);
       } else {
         setShowFinalizar(true);
+      }
+      if (ultimaMovimentacao.typeMovement === "EXCLUSAO_DOCUMENTO") {
+        setShowExcluir(false);
+      } else {
+        setShowExcluir(true);
       }
     } catch (error) {
       console.error('Erro ao buscar documento:', error);
@@ -94,13 +80,13 @@ function Funcoes(props: FuncoesProp) {
           <Button onClick={handleAssinarClick}>Assinar</Button>
         </Grid>
         <Grid item xs={4} sm={2.4}>
-          <Link className='BtnCriarDocumento AppCriarDocumento' to={`/documento/${codigoDocumento}`}>
+          <Link className='BtnCriarDocumento AppCriarDocumento' to="/editar-documento">
             <Button>Editar</Button>
           </Link>
         </Grid>
-        <Grid item xs={4} sm={2.4}>
-          <Button onClick={Excluir}>Excluir</Button>
-        </Grid>
+     
+         {showExcluir ? <Grid item xs={4} sm={2.4}><Excluir codigoDocumento={codigoDocumento} /></Grid> : null}
+
         <Grid item xs={4} sm={2.4}>
           <Button onClick={handleIncluirConsignatario}>Incluir Consignatário</Button>
         </Grid>

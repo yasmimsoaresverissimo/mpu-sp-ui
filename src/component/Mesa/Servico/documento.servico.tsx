@@ -48,3 +48,9 @@ export const filtroBoolean = (mobilId: number, typeMovement: string) => {
 export const cadastrarDocumento = (documento: DocumentoModel) => {
     http.post('/documento/cadastro', documento)
 }
+
+export const excluirDocumento = async (sigla: string, subscritorId: number) => {
+  const response = await http.post(`${baseURLMovimentacoes}/excluir-documento/${sigla}`, { subscritorId });
+  return response.data;
+};
+
