@@ -7,6 +7,7 @@ import Cookies from "universal-cookie";
 import { Pagination } from '@mui/material';
 import Conteudo from "../../../compenentes-compartilhados/Conteudo/Conteudo";
 import moment from 'moment';
+import { buscarDocumento, filtro } from "../Servico/documento.servico";
 
 interface TableMesaProps {
     tipoDocumento: string;
@@ -23,27 +24,35 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
      const [totalPage, setTotalPage] = useState(0);
      const [pageActual, setPageActual] = useState(0);
      const [numberPage, setNumberPage] = useState(0);
+
      const handleChange = (event: React.ChangeEvent<unknown>, page: number) => {
             setPageActual(page - 1)
         };
     
-    async function fetchData() {
-        try {
-            if (!subscritorId) return;
-        const _documentos = await buscarMovimentosPorTipo(subscritorId , pessoaRecebedoraId, tipoDocumento, pageActual, SIZE_LIST)
-        setDocumentos(_documentos.content)
-        setNumberPage(_documentos.number)
-        setTotalPage(_documentos.totalPages)
-        console.log (_documentos)
-        } catch(err) {
-            if(err instanceof Error)
-            Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
+        async function fetchData() {
+            try {
+                if (!subscritorId) return;
+                const _documentos = await buscarMovimentosPorTipo(subscritorId, pessoaRecebedoraId, tipoDocumento, pageActual, SIZE_LIST);
+    
+                // Filtrar documentos com base na última movimentação
+                const filteredDocumentos = _documentos.content.filter((documento: { movimentacoes: { typeMovement: string }[] }) => {
+                    const lastMovement = documento.movimentacoes[documento.movimentacoes.length - 1];
+                    return lastMovement.typeMovement === tipoDocumento;
+                });
+    
+                setDocumentos(filteredDocumentos);
+                setNumberPage(_documentos.number);
+                setTotalPage(_documentos.totalPages);
+                console.log(filteredDocumentos);
+            } catch (err) {
+                if (err instanceof Error)
+                    Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')
+            }
         }
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, [subscritorId, pageActual, tipoDocumento]);
+    
+        useEffect(() => {
+            fetchData();
+        }, [subscritorId, pageActual, tipoDocumento]);
 
     function calculaData(date: Date): string {
         const dia = date.getDate().toString().padStart(2, '0');
