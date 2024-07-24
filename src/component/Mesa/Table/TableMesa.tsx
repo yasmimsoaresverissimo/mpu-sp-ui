@@ -7,7 +7,6 @@ import Cookies from "universal-cookie";
 import { Pagination } from '@mui/material';
 import Conteudo from "../../../compenentes-compartilhados/Conteudo/Conteudo";
 import moment from 'moment';
-import { buscarDocumento, filtro } from "../Servico/documento.servico";
 
 interface TableMesaProps {
     tipoDocumento: string;
@@ -43,7 +42,6 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
                 setDocumentos(filteredDocumentos);
                 setNumberPage(_documentos.number);
                 setTotalPage(_documentos.totalPages);
-                console.log(filteredDocumentos);
             } catch (err) {
                 if (err instanceof Error)
                     Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error')

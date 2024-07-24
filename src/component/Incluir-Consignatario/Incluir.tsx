@@ -109,14 +109,7 @@ function Incluir() {
           </Grid>
         </Grid>
       </Form>
-      <ModalIncluir
-        open={modalOpen}
-        handleClose={handleCloseModal}
-        setMatricula={setMatricula}
-        setNome={setNome}
-        setDepartmentId={setDepartmentId}
-        setPessoaRecebedoraId={setPessoaRecebedoraId}
-      />
+      
     </Conteudo>
   );
 }
