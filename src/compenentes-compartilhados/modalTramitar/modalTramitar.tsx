@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, Box, Grid, Pagination } from '@mui/material';
-import './ModalIncluir.css';
-import Conteudo from '../../Conteudo/Conteudo';
-import Form from '../../Form/Form';
-import Button from '../../Button/Button';
-import Input from '../../Input/Input';
-import SharedInput from '../SharedInput';
-import { buscarUser } from '../Service/BuscarService';
+import './modalTramitar.css';
+import { listarUsuario } from '../../component/Usuario/Servico/usuario.service';
 import Swal from 'sweetalert2';
-import { listarUsuario } from '../../../component/Usuario/Servico/usuario.service';
+import { buscarUser } from '../SharedInput/Service/BuscarService';
+import Conteudo from '../Conteudo/Conteudo';
+import Form from '../Form/Form';
+import Input from '../Input/Input';
+import SharedInput from '../SharedInput/SharedInput';
+import Button from '../Button/Button';
 
 interface ModProps {
   open: boolean;
@@ -19,7 +19,7 @@ interface ModProps {
   setPessoaRecebedoraId: (value: string) => void;
 }
 
-const ModalIncluir: React.FC<ModProps> = ({ open, handleClose, setMatricula, setNome, setDepartmentId, setPessoaRecebedoraId }) => {
+const ModalTramitar: React.FC<ModProps> = ({ open, handleClose, setMatricula, setNome, setDepartmentId, setPessoaRecebedoraId }) => {
   const SIZE_LIST = 2;
   const [usuarios, setUsuarios] = useState([]);
   const [matricula, setMatriculaL] = useState('');
@@ -149,4 +149,4 @@ const ModalIncluir: React.FC<ModProps> = ({ open, handleClose, setMatricula, set
   );
 };
 
-export default ModalIncluir;
+export default ModalTramitar;

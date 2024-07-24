@@ -19,3 +19,9 @@ export const buscarIdentificador = (id:string) => {
         .get(`/Cadastro-Setor/buscar?id=${id}`)
         .then(response => response.data); 
 }   
+
+export const buscarUsuarioPorSetor = (departmentId: number) => {
+    return http
+    .get(`${baseURL}/filtro?departmentId=${departmentId}`)
+    .then(response => response.data);
+}

@@ -29,3 +29,9 @@ export const buscarUsuarioPorId = (id:string) => {
         .get(`${baseURL}/buscar/${id}`)
         .then(response => response.data); 
 } 
+
+export const buscarUsuarioPorSetor = (departmentId: number) => {
+    return http
+    .get(`${baseURL}/filtro?departmentId=${departmentId}`)
+    .then(response => response.data);
+}

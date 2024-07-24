@@ -1,0 +1,78 @@
+.modal-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; 
+    max-width: 600px; 
+    min-width: 300px; 
+    background-color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    padding: 15px; 
+    border-radius: 4px; 
+    overflow-y: auto; 
+  }
+  
+  table.AppTabelaUsuario {
+    margin-top: 25px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table.AppTabelaUsuario thead {
+    background-color: rgb(0,0,0);
+  }
+  
+  table.AppTabelaUsuario thead tr th {
+    color: white;
+    text-align: left;
+    padding: 7px 10px;
+    font-size: .8em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+  }
+  
+  table.AppTabelaUsuario tbody tr:hover {
+    background-color: rgb(246, 245, 245);
+  }
+  
+  table.AppTabelaUsuario tbody tr td {
+    padding: 7px 10px;
+  }
+  
+  .acoes > *:not(:last-child) {
+    margin-right: 5px;
+  }
+  
+  table.AppTabelaUsuario a {
+    color: #29a9ff;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-box {
+      width: 80%;
+      padding: 10px;
+    }
+    
+    table.AppTabelaUsuario thead tr th,
+    table.AppTabelaUsuario tbody tr td {
+      padding: 5px; 
+      font-size: 0.75em; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .modal-box {
+      width: 90%; 
+      padding: 8px; 
+    }
+    
+    table.AppTabelaUsuario thead tr th,
+    table.AppTabelaUsuario tbody tr td {
+      padding: 3px; 
+      font-size: 0.7em; 
+    }
+  }
+  
