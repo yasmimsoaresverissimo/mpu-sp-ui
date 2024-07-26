@@ -28,6 +28,7 @@ function Mesa() {
     const [showAccordion2, setAccordion2] = useState(false)
     const [showAccordion3, setAccordion3] = useState(false)
     const [showAccordion4, setAccordion4] = useState(false)
+    const [showAccordion5, setAccordion5] = useState(false)
     const [tipoDocumento, setTipoDocumento] = useState('CRIACAO');
 
     function handleClick (ids:any) {
@@ -55,6 +56,13 @@ function Mesa() {
             setAccordion3(false)
             setAccordion4(true)
             setTipoDocumento('ASSINATURA_COM_SENHA');
+        } else if(ids === 5) { 
+            setAccordion1(false)
+            setAccordion2(false)
+            setAccordion3(false)
+            setAccordion4(false)
+            setAccordion5(true)
+            setTipoDocumento('RECEBIMENTO_DOCUMENTO');
         }
     }
 
@@ -127,6 +135,13 @@ function Mesa() {
                     <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
                 </div>
             )}
+            <div className="accordion-heading" onClick={() => handleClick(5)} >Documentos recebidos</div>
+            {showAccordion5 && (
+                <div className="accordion-content" >
+                    <TableMesa subscritorId={ subscritorId } tipoDocumento={ tipoDocumento }></TableMesa>
+                </div>
+            )}
+            
         <Modal
             selectedValue={'selectedValue'}
             open={open}
