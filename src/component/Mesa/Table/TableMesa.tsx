@@ -8,6 +8,7 @@ import { Pagination } from '@mui/material';
 import Conteudo from "../../../compenentes-compartilhados/Conteudo/Conteudo";
 import moment from 'moment';
 import { recebimentoDocumento } from "../Servico/documento.servico";
+import Loader from "../../Loader/Loader";
 
 interface TableMesaProps {
     tipoDocumento: string;
@@ -21,12 +22,14 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
     const [totalPage, setTotalPage] = useState(0);
     const [pageActual, setPageActual] = useState(0);
     const [numberPage, setNumberPage] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<unknown>, page: number) => {
         setPageActual(page - 1);
     };
 
     async function fetchData() {
+        setLoading(true);
         try {
             if (!subscritorId) return;
             const _documentos = await buscarMovimentosPorTipo(subscritorId, pessoaRecebedoraId, tipoDocumento, pageActual, SIZE_LIST);
@@ -40,6 +43,11 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
             setDocumentos(filteredDocumentos);
             setNumberPage(_documentos.number);
             setTotalPage(_documentos.totalPages);
+
+            setTimeout(() => {
+                setLoading(false);
+            }, 2000);
+
         } catch (err) {
             if (err instanceof Error) {
                 Swal.fire('Oops!', 'Erro ao se conectar com o servidor!', 'error');
@@ -98,6 +106,7 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
 
     return (
         <Conteudo>
+            {loading && <Loader />}
             <table className="AppTable">
                 <thead>
                     <tr>
