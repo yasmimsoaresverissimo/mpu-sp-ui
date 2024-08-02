@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 
 interface Cossignatario {
   pessoaRecebedoraId: string;
-  movementId: number; 
+  movementId: string; 
   userDetails: {
     nome: string;
     matricula: string;
@@ -24,7 +24,7 @@ function VisualizarDoc() {
   const { codigo } = useParams<{ codigo: string }>();
   const [html, setHtml] = useState<string>("");
   const [lista, setLista] = useState<Cossignatario[]>([]);
-  const [mobilId, setMobilId] = useState<number>(0); // Ajuste para número
+  const [mobilId, setMobilId] = useState<string>("");  // Ajuste para número
   const codigoDocumento = codigo || "";
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function VisualizarDoc() {
   }, [codigoDocumento]);
 
   useEffect(() => {
-    if (mobilId !== 0) {
+    if (mobilId) {
       listarCossignatarios();
     }
   }, [mobilId]);

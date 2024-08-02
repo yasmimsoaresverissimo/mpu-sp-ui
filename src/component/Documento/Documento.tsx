@@ -18,12 +18,12 @@ import Button from "../../compenentes-compartilhados/Button/Button";
 export class DocumentoModel {
     sigla?: string
     siglaResponsavelAssinatura?: string
-    modelo?: number 
+    modelo?: string 
     tempo?: string
 }
 
 interface Modelo {
-  modelId: number;
+  modelId: string;
   htmlForm: string;
   label: string
   descricaoCompleta: string

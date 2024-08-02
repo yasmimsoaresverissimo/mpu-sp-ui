@@ -2,7 +2,7 @@ import http from "../../../utils/http-document";
 
 const baseURL = '/v1/mobil';
 
-export const buscarMovimentosPorTipo = (subscritorId?: string, pessoaRecebedoraId?: number, typeMovement?: string, page?: any, size?: any) => {
+export const buscarMovimentosPorTipo = (subscritorId?: string, pessoaRecebedoraId?: string, typeMovement?: string, page?: any, size?: any) => {
     // Construir a parte da query da URL com os parâmetros fornecidos
     let queryParams = '';
     if (page !== undefined && size !== undefined) {

@@ -15,12 +15,12 @@ import { buscarUsuarioPorSetor } from "../Usuario/Servico/usuario.service";
 import ModalTramitar from "../../compenentes-compartilhados/modalTramitar/modalTramitar";
 
 interface Setor {
-  id: number;
+  id: string;
   nome: string;
 }
 
 interface User {
-  id: number;
+  id: string;
   nome: string;
 }
 
@@ -63,7 +63,7 @@ function TramitarDoc() {
     }
   }
 
-  async function listarUsuarios(setorId: number) {
+  async function listarUsuarios(setorId: string) {
     try {
       const _usuarios = await buscarUsuarioPorSetor(setorId);
       console.log(_usuarios)

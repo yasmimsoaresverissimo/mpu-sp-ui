@@ -11,7 +11,7 @@ interface ExcluirProps {
 const Excluir: React.FC<ExcluirProps> = (props) => {
   const [typeMovement, setTypeMovement] = useState('');
   const [showExcluir, setShowExcluir] = useState(true);
-  const [mobilId, setMobilId] = useState<number>(0);
+  const [mobilId, setMobilId] = useState<string>(""); 
   const { sigla } = useParams<{ sigla: string }>();
   const [documentoData, setDocumentoData] = useState<any>({});
   const codigoDocumento = sigla || "";

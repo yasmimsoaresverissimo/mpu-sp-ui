@@ -17,13 +17,13 @@ var idUsuario;
         var matricula = campoMatricula.value;
 
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8082/v1/user/buscar/' + matricula + '/matricula', true);
+        xhr.open('GET', 'http://localhost:8085/v1/user/buscar/' + matricula + '/matricula', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     var usuario = JSON.parse(xhr.responseText);
                     campoNomeCompleto.value = usuario.nome;
-                    idUsuario =  usuario.id
+                    idUsuario =  usuario.userId
                 } else {
                     console.error('Erro ao buscar usuário:', xhr.statusText);
                     alert('Erro ao buscar usuário. Por favor, tente novamente.');

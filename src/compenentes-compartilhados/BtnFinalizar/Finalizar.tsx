@@ -8,13 +8,13 @@ interface FinalizarProps {
   codigoDocumento?: string;
 }
 interface DocumentoData {
-  subscritorId: number;
+  subscritorId: string;
 }
 
 const Finalizar: React.FC<FinalizarProps> = (props) => {
   const [typeMovement, setTypeMovement] = useState('');
   const [showFinalizar, setShowFinalizar] = useState(true);
-  const [mobilId, setMobilId] = useState<number>(0);
+  const [mobilId, setMobilId] = useState<string>(""); 
   const { sigla } = useParams<{ sigla: string }>();
   const [documentoData, setDocumentoData] = useState<any>({})
   const codigoDocumento = sigla || "";

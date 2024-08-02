@@ -8,7 +8,7 @@ export const incluircossignatario = async (cossignatario: Cossignatario, siglaDo
     return response.data;
   }
 
-export const listarCossignatario = (mobilId?: number, typeMovement?: string, page?: any, size?: any) => {
+export const listarCossignatario = (mobilId?: string, typeMovement?: string, page?: any, size?: any) => {
     return http
         .get(`${baseURL}/filtro?page=${page}&size=${size}&mobilId=${mobilId}&typeMovement=${typeMovement}`)
         .then(response => response.data); 
