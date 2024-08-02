@@ -74,7 +74,7 @@ const ModalTramitar: React.FC<ModProps> = ({ open, handleClose, setMatricula, se
     setMatricula(user.userModel.matricula);
     setNome(user.userModel.nome);
     setDepartmentId(user.departmentId);
-    setPessoaRecebedoraId(user.userModel.id);
+    setPessoaRecebedoraId(user.userModel.userId);
     handleClose(); 
   };
   

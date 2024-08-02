@@ -12,7 +12,7 @@ import Loader from "../../Loader/Loader";
 
 interface TableMesaProps {
     tipoDocumento: string;
-    pessoaRecebedoraId?: number;
+    pessoaRecebedoraId?: string;
     subscritorId?: string;
 }
 
@@ -96,8 +96,7 @@ const TableMesa: React.FC<TableMesaProps> = ({ tipoDocumento, pessoaRecebedoraId
 
         try {
             if (!subscritorId) return;
-            const id = parseInt(subscritorId);
-            const result = await recebimentoDocumento(sigla, id, pessoaRecebedoraId || 0);
+            const result = await recebimentoDocumento(sigla, subscritorId, pessoaRecebedoraId || '0');
             console.log('Documento recebido:', result);
         } catch (error) {
             Swal.fire('Erro!', 'Erro ao receber o documento', 'error');

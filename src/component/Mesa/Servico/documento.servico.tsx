@@ -17,7 +17,7 @@ export const buscarDocumento = (sigla:string) => {
         .then(response => response.data); 
 } 
 
-export const filtro = (mobilId: number, typeMovement:number) => {
+export const filtro = (mobilId: string, typeMovement:string) => {
     return http
     .get(`${baseURLMovimentacoes}/filtro`, {
         params: {
@@ -28,7 +28,7 @@ export const filtro = (mobilId: number, typeMovement:number) => {
     .then(response => response.data);
 }
 
-export const filtroBoolean = (mobilId: number, typeMovement: string) => {
+export const filtroBoolean = (mobilId: string, typeMovement: string) => {
     return http
      .get(`${baseURLMovimentacoes}/filtro-boolean`, {
         params: {
@@ -39,7 +39,7 @@ export const filtroBoolean = (mobilId: number, typeMovement: string) => {
      .then(response => response.data.isFinalized);
   }
 
-  export const finalizarDocumento = (sigla: string, subscritorId: number) => {
+  export const finalizarDocumento = (sigla: string, subscritorId: string) => {
     return http
      .post(`${baseURLMovimentacoes}/finalizacao-documento/${sigla}`, { subscritorId })
      .then(response => response.data)
@@ -49,12 +49,12 @@ export const cadastrarDocumento = (documento: DocumentoModel) => {
     http.post('/documento/cadastro', documento)
 }
 
-export const excluirDocumento = async (sigla: string, subscritorId: number) => {
+export const excluirDocumento = async (sigla: string, subscritorId: string) => {
   const response = await http.post(`${baseURLMovimentacoes}/excluir-documento/${sigla}`, { subscritorId });
   return response.data;
 };
 
-export const recebimentoDocumento = (sigla: string, subscritorId: number, pessoaRecebedoraId: number) => {
+export const recebimentoDocumento = (sigla: string, subscritorId: string, pessoaRecebedoraId: string) => {
   return http
    .post(`${baseURLMovimentacoes}/recebimento-documento/${sigla}`, { subscritorId, pessoaRecebedoraId })
    .then(response => response.data)

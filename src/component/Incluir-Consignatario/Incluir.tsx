@@ -65,7 +65,7 @@ function Incluir() {
         Swal.fire('Erro', 'Sigla do documento não encontrada', 'error');
       }
     } catch (err:any) {
-      if (err.response && err.response.status === 409) {
+      if (err.response && err.response.status === 500) {
         Swal.fire('Atenção', 'O cossignatário já foi incluído anteriormente', 'warning');
       } else if (err instanceof Error) {
         Swal.fire('Oops!', err.message, 'error');
@@ -103,13 +103,20 @@ function Incluir() {
             <Button onClick={handleIncluir}>Incluir</Button>
           </Grid>
           <Grid item xs={4} sm={3}>
-            <Link className='BtnCriarDocumento AppCriarDocumento' to="/visualizar-documento">
-              <Button value="Voltar" color="grey" />
+          <Link to={`/visualizar-documento/${siglaDocumento}`}>
+              <Button value="Cancelar" color="danger"></Button>
             </Link>
           </Grid>
         </Grid>
       </Form>
-      
+      <ModalIncluir
+        open={modalOpen}
+        handleClose={handleCloseModal}
+        setMatricula={setMatricula}
+        setNome={setNome}
+        setDepartmentId={setDepartmentId}
+        setPessoaRecebedoraId={setPessoaRecebedoraId}
+      />
     </Conteudo>
   );
 }

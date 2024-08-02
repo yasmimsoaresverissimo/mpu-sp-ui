@@ -30,7 +30,7 @@ export const buscarUsuarioPorId = (id:string) => {
         .then(response => response.data); 
 } 
 
-export const buscarUsuarioPorSetor = (departmentId: number) => {
+export const buscarUsuarioPorSetor = (departmentId: string) => {
     return http
     .get(`${baseURL}/filtro?departmentId=${departmentId}`)
     .then(response => response.data);
